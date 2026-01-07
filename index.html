@@ -3,572 +3,92 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Click Cuisine | Conception & Assemblage Express</title>
-    <meta
-      name="description"
-      content="Armoires Click Cuisine : ingénierie québécoise, montage en moins de 60 secondes, livrées directement à votre porte."
-    />
+    <title>Portfolio - 4 Versions de Sites Web</title>
+    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ["Inter", "sans-serif"],
-              display: ["Playfair Display", "serif"],
-            },
-            colors: {
-              brand: {
-                50: "#F5F4F0",
-                100: "#E7E5E0",
-                200: "#C9C6B5",
-                300: "#B1AA90",
-                400: "#9A8E6D",
-                500: "#7C7151",
-                600: "#615840",
-                700: "#4B432F",
-                800: "#322C20",
-                900: "#1F1A14",
-              },
-            },
-          },
-        },
-      };
-    </script>
-    <!-- Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    
     <style>
       :root {
         --font-display: "Playfair Display", serif;
         --font-sans: "Inter", sans-serif;
       }
 
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #0b0b0b;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #3a3a3a;
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #555;
+      body {
+        font-family: var(--font-sans);
+        background: #0a0a0a;
+        color: #f5f5f5;
       }
 
-      .progress-bar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 3px;
-        width: 0%;
-        z-index: 50;
-        background: linear-gradient(90deg, #ffffff, #9a8e6d);
-        transition: width 0.1s linear;
+      .font-display {
+        font-family: var(--font-display);
       }
 
-      .fade-in {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+      .preview-card {
+        transition: all 0.4s ease;
+        position: relative;
+        display: block;
+        cursor: pointer;
       }
 
-      .fade-in.active {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      .fade-in-left {
-        opacity: 0;
-        transform: translateX(-24px);
-        transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-
-      .fade-in-left.active {
-        opacity: 1;
-        transform: translateX(0);
-      }
-
-      .glass {
-        background: rgba(255, 255, 255, 0.04);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .mobile-menu {
-        transform: translateX(100%);
-        transition: transform 0.45s cubic-bezier(0.77, 0, 0.175, 1);
-      }
-
-      .mobile-menu.open {
-        transform: translateX(0);
-      }
-
-      .zoom-image img {
-        transition: transform 0.7s cubic-bezier(0.2, 1, 0.2, 1), filter 0.6s ease;
-      }
-
-      .zoom-image:hover img {
-        transform: scale(1.05);
-        filter: saturate(1.05);
+      .preview-card:hover {
+        transform: translateY(-8px);
       }
     </style>
   </head>
-  <body class="antialiased bg-[#0b0b0b] text-white selection:bg-white/20 selection:text-white">
-    <div class="progress-bar" id="progressBar"></div>
-
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-40 px-6 md:px-12 py-6 transition-all duration-300" id="navbar">
-      <div class="max-w-7xl mx-auto flex items-center justify-between">
-        <a href="#top" class="flex items-center gap-3 font-display text-2xl font-semibold tracking-tight">
-          <img src="./logo_raw.png" alt="Logo Click Cuisine" class="h-10 w-auto hidden sm:block" />
-          <span class="sm:hidden">Click Cuisine</span>
-        </a>
-        <div class="hidden md:flex items-center gap-10 text-sm uppercase tracking-[0.2em]">
-          <a href="#technology" class="text-gray-300 hover:text-white transition-colors">Technologie</a>
-          <a href="#process" class="text-gray-300 hover:text-white transition-colors">Processus</a>
-          <a href="#contact" class="glass px-6 py-2 rounded-full hover:bg-white hover:text-black transition-all duration-300">Nous joindre</a>
-        </div>
-        <button class="md:hidden p-2" id="mobileMenuBtn" aria-label="Ouvrir le menu">
-          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="4" x2="20" y1="12" y2="12"></line>
-            <line x1="4" x2="20" y1="6" y2="6"></line>
-            <line x1="4" x2="20" y1="18" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-    </nav>
-
-    <!-- Mobile Menu -->
-    <div class="mobile-menu fixed inset-0 bg-black/95 z-30 flex flex-col items-center justify-center gap-10 text-center" id="mobileMenu">
-      <button class="absolute top-10 right-8 text-white p-3" id="closeMenuBtn" aria-label="Fermer le menu">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M18 6 6 18"></path>
-          <path d="m6 6 12 12"></path>
-        </svg>
-      </button>
-      <a href="#technology" class="font-display text-3xl text-gray-300 hover:text-white transition-colors">Technologie</a>
-      <a href="#process" class="font-display text-3xl text-gray-300 hover:text-white transition-colors">Processus</a>
-      <a href="#contact" class="font-display text-3xl text-white hover:text-gray-200 transition-colors">Contact</a>
-    </div>
-
-    <!-- Hero -->
-    <header id="top" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div class="absolute inset-0">
-        <img
-          src="./Assets/background-main-kitchen.avif"
-          alt="Cuisine moderne Click Cuisine"
-          class="w-full h-full object-cover scale-105"
-          loading="eager"
-        />
-        <div class="absolute inset-0 bg-gradient-to-b from-black via-black/60 to-[#0b0b0b]"></div>
-      </div>
-
-      <div class="relative z-10 max-w-6xl mx-auto px-6 text-center mt-16">
-        <p class="inline-flex items-center gap-2 px-4 py-2 glass rounded-full text-xs tracking-[0.3em] uppercase text-gray-200 fade-in">
-          Ingénierie québécoise
-        </p>
-        <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] mt-8 mb-8 fade-in">
-          L'ébénisterie réinventée
-        </h1>
-        <p class="text-lg md:text-2xl text-gray-300 max-w-3xl mx-auto fade-in" style="animation-delay: 0.1s;">
-          Ce n'est pas une nouvelle technologie. Seulement cuisine pré-fab facile à installer et fait sur mesure.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10 fade-in" style="animation-delay: 0.2s;">
-          <a href="#contact" class="px-10 py-4 bg-white text-black rounded-full font-semibold tracking-wider hover:bg-gray-200 transition-transform duration-300 hover:scale-105 flex items-center gap-3">
-            Démarrer un projet
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1">
-              <path d="M5 12h14"></path>
-              <path d="m12 5 7 7-7 7"></path>
-            </svg>
-          </a>
-          <a href="#technology" class="px-10 py-4 glass rounded-full font-semibold tracking-wider text-white hover:bg-white/10 transition-transform duration-300 flex items-center gap-3">
-            Découvrir la technologie
+  <body class="antialiased">
+    <section class="min-h-screen py-20 px-6 flex items-center">
+      <div class="max-w-7xl mx-auto w-full">
+        <div class="text-center mb-12">
+          <h1 class="font-display text-4xl md:text-5xl font-bold mb-4">Portfolio - 4 Versions</h1>
+          <p class="text-gray-400 mb-6">Sélectionnez une version pour voir le site complet</p>
+          <a href="click-cuisine.html" class="inline-block px-6 py-3 bg-white/10 hover:bg-white/20 rounded-full text-sm uppercase tracking-wider transition-colors">
+            Voir le site principal
           </a>
         </div>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-16 max-w-4xl mx-auto border-t border-white/10 pt-10 fade-in" style="animation-delay: 0.3s;">
-          <div class="text-center">
-            <p class="text-4xl font-display font-semibold">10x</p>
-            <p class="text-xs uppercase tracking-[0.3em] text-gray-400">Plus rapide</p>
-          </div>
-          <div class="text-center">
-            <p class="text-4xl font-display font-semibold">&lt;60s</p>
-            <p class="text-xs uppercase tracking-[0.3em] text-gray-400">Par caisson</p>
-          </div>
-          <div class="text-center">
-            <p class="text-4xl font-display font-semibold">0</p>
-            <p class="text-xs uppercase tracking-[0.3em] text-gray-400">Outils requis</p>
-          </div>
-          <div class="text-center">
-            <p class="text-4xl font-display font-semibold">100%</p>
-            <p class="text-xs uppercase tracking-[0.3em] text-gray-400">Québécois</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-gray-500 animate-bounce">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="m6 9 6 6 6-6"></path>
-        </svg>
-      </div>
-    </header>
-
-    <!-- Technology -->
-    <section id="technology" class="relative py-24 px-6 bg-[#0f0f0f] overflow-hidden">
-      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-        <div class="zoom-image rounded-2xl overflow-hidden shadow-2xl fade-in-left">
-          <img src="./Assets/three-kitchens.avif" alt="Modules Click Cuisine installés" class="w-full h-full object-cover" loading="lazy" />
-        </div>
-        <div class="fade-in">
-          <span class="text-xs tracking-[0.3em] uppercase text-gray-400 mb-4 block">Notre ADN</span>
-          <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight mb-6">
-            De l'établi à l'<span class="text-brand-300">innovation</span>
-          </h2>
-          <p class="text-lg text-gray-300 leading-relaxed mb-6">
-            Conçues et fabriquées au Québec, nos armoires utilisent un joint continu qui garantit l'équerrage automatique, la rigidité et une finition sans perforations visibles.
-          </p>
-          <p class="text-lg text-gray-300 leading-relaxed mb-8">
-            Chaque caisson arrive à plat, se clippe en quelques gestes et reste démontable sans altération — idéal pour projets résidentiels, multilogements et espaces commerciaux.
-          </p>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div class="flex items-start gap-3">
-              <div class="w-10 h-10 rounded-full bg-brand-800/60 flex items-center justify-center">
-                <i data-lucide="zap" class="w-5 h-5"></i>
-              </div>
-              <div>
-                <p class="font-semibold text-white">Assemblage express</p>
-                <p class="text-sm text-gray-400">Moins de 60 secondes par caisson, sans outillage.</p>
-              </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Version 1 -->
+          <a href="HTML_Codes/dark-playfair-basic.html" target="_blank" class="preview-card bg-gray-900 rounded-2xl p-12 hover:bg-gray-800">
+            <div class="text-center">
+              <div class="text-6xl font-display font-bold mb-4">1</div>
+              <h3 class="font-display text-3xl font-bold mb-2">Version 1</h3>
+              <p class="text-gray-400">Dark Playfair Basic</p>
             </div>
-            <div class="flex items-start gap-3">
-              <div class="w-10 h-10 rounded-full bg-brand-800/60 flex items-center justify-center">
-                <i data-lucide="shield" class="w-5 h-5"></i>
-              </div>
-              <div>
-                <p class="font-semibold text-white">Rigidité supérieure</p>
-                <p class="text-sm text-gray-400">Joint continu et équerrage automatique breveté.</p>
-              </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <div class="w-10 h-10 rounded-full bg-brand-800/60 flex items-center justify-center">
-                <i data-lucide="leaf" class="w-5 h-5"></i>
-              </div>
-              <div>
-                <p class="font-semibold text-white">Design épuré</p>
-                <p class="text-sm text-gray-400">Aucune quincaillerie apparente à l'intérieur ou l'extérieur.</p>
-              </div>
-            </div>
-            <div class="flex items-start gap-3">
-              <div class="w-10 h-10 rounded-full bg-brand-800/60 flex items-center justify-center">
-                <i data-lucide="repeat" class="w-5 h-5"></i>
-              </div>
-              <div>
-                <p class="font-semibold text-white">Réversible & durable</p>
-                <p class="text-sm text-gray-400">Montage/démontage sans usure, parfait pour déménagements.</p>
-              </div>
-            </div>
-          </div>
-          <div class="mt-10">
-            <a href="#contact" class="inline-flex items-center gap-3 text-sm uppercase tracking-[0.25em] text-white border-b border-white/30 hover:text-brand-200 hover:border-brand-200 transition-colors">
-              Demander le catalogue technique
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14"></path>
-                <path d="m12 5 7 7-7 7"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Highlights -->
-    <section class="relative py-24 px-6 bg-[#131313] border-t border-white/5">
-      <div class="max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
-          <div>
-            <p class="text-xs uppercase tracking-[0.3em] text-gray-400 mb-3">Avantages clés</p>
-            <h3 class="font-display text-4xl font-bold">Pensé pour les installateurs, conçu pour durer</h3>
-          </div>
-          <p class="text-gray-400 max-w-xl">
-            Une logistique simplifiée, une expérience client premium et un résultat architectural uniforme.
-          </p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5 rounded-2xl overflow-hidden shadow-[0_20px_80px_-40px_rgba(0,0,0,0.6)]">
-          <div class="bg-[#131313] p-10">
-            <i data-lucide="box" class="w-9 h-9 text-brand-300 mb-6"></i>
-            <h4 class="font-display text-2xl mb-3">Livraison à plat</h4>
-            <p class="text-gray-400">Moins de volume, moins de coûts, plus de rapidité sur chantier.</p>
-          </div>
-          <div class="bg-[#131313] p-10">
-            <i data-lucide="sparkles" class="w-9 h-9 text-brand-300 mb-6"></i>
-            <h4 class="font-display text-2xl mb-3">Finition invisible</h4>
-            <p class="text-gray-400">Face intérieure et extérieure sans aucune perforation apparente.</p>
-          </div>
-          <div class="bg-[#131313] p-10">
-            <i data-lucide="clock-3" class="w-9 h-9 text-brand-300 mb-6"></i>
-            <h4 class="font-display text-2xl mb-3">Temps optimisé</h4>
-            <p class="text-gray-400">Jusqu'à 10x plus rapide que les méthodes traditionnelles.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Process -->
-    <section id="process" class="relative py-24 px-6 bg-[#0b0b0b]">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-          <p class="text-xs uppercase tracking-[0.3em] text-gray-400 mb-3">Processus</p>
-          <h3 class="font-display text-4xl md:text-5xl font-bold">Une expérience fluide de bout en bout</h3>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <div class="glass rounded-xl p-8 fade-in">
-            <div class="text-4xl font-display text-brand-200 mb-4">01</div>
-            <h4 class="text-xl font-semibold mb-2">Consultation</h4>
-            <p class="text-gray-400 text-sm">Analyse de votre projet, mesures et contraintes.</p>
-          </div>
-          <div class="glass rounded-xl p-8 fade-in" style="animation-delay: 0.1s;">
-            <div class="text-4xl font-display text-brand-200 mb-4">02</div>
-            <h4 class="text-xl font-semibold mb-2">Conception</h4>
-            <p class="text-gray-400 text-sm">Modélisation 3D photoréaliste et plans techniques.</p>
-          </div>
-          <div class="glass rounded-xl p-8 fade-in" style="animation-delay: 0.2s;">
-            <div class="text-4xl font-display text-brand-200 mb-4">03</div>
-            <h4 class="text-xl font-semibold mb-2">Fabrication</h4>
-            <p class="text-gray-400 text-sm">Production locale, contrôle qualité à chaque étape.</p>
-          </div>
-          <div class="glass rounded-xl p-8 fade-in" style="animation-delay: 0.3s;">
-            <div class="text-4xl font-display text-brand-200 mb-4">04</div>
-            <h4 class="text-xl font-semibold mb-2">Installation</h4>
-            <p class="text-gray-400 text-sm">Livraison à plat et montage express par vous ou nos équipes.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Gallery / Showcase -->
-    <section class="relative py-24 px-6 bg-[#111] border-t border-white/5">
-      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-        <div class="rounded-2xl overflow-hidden zoom-image shadow-2xl fade-in-left">
-          <img src="./Assets/white-small-kitchen.avif" alt="Cuisine lumineuse Click Cuisine" class="w-full h-full object-cover" loading="lazy" />
-        </div>
-        <div class="glass rounded-2xl p-10 flex flex-col justify-between fade-in">
-          <div>
-            <p class="text-xs uppercase tracking-[0.3em] text-gray-400 mb-3">Applications</p>
-            <h3 class="font-display text-4xl font-bold mb-4">Résidentiel, multilogements, commercial</h3>
-            <p class="text-gray-300 mb-6">
-              Le système Click s'adapte aux condos, maisons neuves, rénos rapides et commerces qui exigent un déploiement sans friction. Finition uniforme, durabilité et maintenance simple.
-            </p>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1 rounded-full bg-white/5 text-xs uppercase tracking-[0.2em] text-gray-200">Flat-pack</span>
-              <span class="px-3 py-1 rounded-full bg-white/5 text-xs uppercase tracking-[0.2em] text-gray-200">Breveté</span>
-              <span class="px-3 py-1 rounded-full bg-white/5 text-xs uppercase tracking-[0.2em] text-gray-200">Sans outils</span>
-              <span class="px-3 py-1 rounded-full bg-white/5 text-xs uppercase tracking-[0.2em] text-gray-200">Québécois</span>
-            </div>
-          </div>
-          <div class="mt-8">
-            <a href="#contact" class="inline-flex items-center gap-2 text-sm uppercase tracking-[0.25em] text-white border-b border-white/20 hover:border-brand-200 hover:text-brand-200 transition-colors">
-              Planifier une démo
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14"></path>
-                <path d="m12 5 7 7-7 7"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="relative py-24 px-6 bg-gradient-to-br from-[#0b0b0b] via-[#121212] to-[#0b0b0b] overflow-hidden">
-      <div class="absolute inset-0 pointer-events-none">
-        <div class="absolute -top-24 -left-24 w-96 h-96 bg-brand-800/20 blur-[140px]"></div>
-        <div class="absolute bottom-0 right-0 w-[32rem] h-[32rem] bg-brand-500/10 blur-[180px]"></div>
-      </div>
-      <div class="relative max-w-6xl mx-auto text-center fade-in">
-        <h3 class="font-display text-4xl md:text-6xl font-bold mb-6">Prêt à lancer votre projet?</h3>
-        <p class="text-lg text-gray-300 mb-10">
-          Une équipe dédiée pour la conception, l'approvisionnement et l'installation. Contactez-nous pour une estimation et une démonstration.
-        </p>
-        <div class="flex flex-col lg:flex-row gap-8 justify-center items-stretch">
-          <div class="flex-1 flex flex-col gap-4">
-            <a href="#contact" class="px-10 py-4 bg-white text-black rounded-full font-semibold tracking-wider hover:bg-gray-200 transition-transform duration-300 hover:scale-105">
-              Obtenir une soumission
-            </a>
-            <a href="mailto:info@clickcuisine.com" class="px-10 py-4 glass rounded-full font-semibold tracking-wider text-white hover:bg-white/10 transition-transform duration-300">
-              info@clickcuisine.com
-            </a>
-          </div>
-          <div class="flex-1 glass rounded-2xl p-8 text-left space-y-4">
-            <p class="text-sm uppercase tracking-[0.25em] text-gray-400">Contact</p>
-            <p class="font-display text-2xl font-semibold text-white">Commençons une conversation</p>
-            <p class="text-gray-300">
-              Soumissions, partenariats ou projets pilotes : notre équipe répond rapidement et peut organiser une démonstration privée.
-            </p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-200">
-              <div>
-                <p class="text-[11px] uppercase tracking-[0.2em] text-gray-500 mb-1">Courriel</p>
-                <a href="mailto:info@clickcuisine.com" class="font-medium hover:text-brand-200 transition-colors">info@clickcuisine.com</a>
-              </div>
-              <div>
-                <p class="text-[11px] uppercase tracking-[0.2em] text-gray-500 mb-1">Téléphone</p>
-                <a href="tel:+15141234567" class="font-medium hover:text-brand-200 transition-colors">+1 (514) 123-4567</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="relative py-24 px-6 bg-[#0f0f0f]">
-      <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
-        <div class="fade-in-left">
-          <p class="text-xs uppercase tracking-[0.3em] text-gray-400 mb-3">Contact</p>
-          <h3 class="font-display text-4xl md:text-5xl font-bold mb-6 leading-tight">Commençons une conversation</h3>
-          <p class="text-gray-300 text-lg mb-10">
-            Soumissions, partenariats ou projets pilotes : notre équipe répond rapidement et peut organiser une démonstration privée.
-          </p>
-          <div class="space-y-6 text-gray-200">
-            <div>
-              <p class="text-xs uppercase tracking-[0.2em] text-gray-500 mb-1">Courriel</p>
-              <a href="mailto:info@clickcuisine.com" class="text-xl font-medium hover:text-brand-200 transition-colors">info@clickcuisine.com</a>
-            </div>
-            <div>
-              <p class="text-xs uppercase tracking-[0.2em] text-gray-500 mb-1">Téléphone</p>
-              <a href="tel:+15141234567" class="text-xl font-medium hover:text-brand-200 transition-colors">+1 (514) 123-4567</a>
-            </div>
-          </div>
-        </div>
-        <div class="glass rounded-2xl p-8 lg:p-10 fade-in">
-          <form class="space-y-4" onsubmit="event.preventDefault(); alert('Merci! Votre message a été reçu.');">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div class="space-y-2">
-                <label class="text-xs uppercase tracking-[0.2em] text-gray-400">Prénom</label>
-                <input type="text" class="w-full px-4 py-3 rounded-xl bg-white/5 text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-brand-300" />
-              </div>
-              <div class="space-y-2">
-                <label class="text-xs uppercase tracking-[0.2em] text-gray-400">Nom</label>
-                <input type="text" class="w-full px-4 py-3 rounded-xl bg-white/5 text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-brand-300" />
-              </div>
-            </div>
-            <div class="space-y-2">
-              <label class="text-xs uppercase tracking-[0.2em] text-gray-400">Courriel</label>
-              <input type="email" class="w-full px-4 py-3 rounded-xl bg-white/5 text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-brand-300" />
-            </div>
-            <div class="space-y-2">
-              <label class="text-xs uppercase tracking-[0.2em] text-gray-400">Téléphone</label>
-              <input type="tel" class="w-full px-4 py-3 rounded-xl bg-white/5 text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-brand-300" />
-            </div>
-            <div class="space-y-2">
-              <label class="text-xs uppercase tracking-[0.2em] text-gray-400">Projet</label>
-              <textarea rows="4" class="w-full px-4 py-3 rounded-xl bg-white/5 text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-brand-300 resize-none"></textarea>
-            </div>
-            <button type="submit" class="w-full md:w-auto px-8 py-3 bg-white text-black rounded-full font-semibold tracking-wider hover:bg-gray-200 transition-transform duration-300 hover:scale-[1.01]">
-              Obtenir une soumission
-            </button>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-[#0b0b0b] border-t border-white/5 py-12 px-6">
-      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
-        <div class="md:col-span-2">
-          <a href="#top" class="flex items-center gap-3 font-display text-2xl font-semibold tracking-tight mb-4">
-            <img src="./logo_raw.png" alt="Logo Click Cuisine" class="h-10 w-auto" />
-            <span class="hidden sm:inline">Click Cuisine / Click Kitchen</span>
           </a>
-          <p class="text-gray-400 text-sm max-w-lg">
-            L'innovation au service de l'ébénisterie résidentielle et commerciale. Assemblage express, design épuré, ingénierie québécoise.
-          </p>
-        </div>
-        <div>
-          <h5 class="text-xs uppercase tracking-[0.25em] text-gray-500 mb-4">Navigation</h5>
-          <div class="flex flex-col gap-2 text-sm text-gray-300">
-            <a href="#technology" class="hover:text-white transition-colors">Technologie</a>
-            <a href="#process" class="hover:text-white transition-colors">Processus</a>
-            <a href="#contact" class="hover:text-white transition-colors">Contact</a>
-          </div>
-        </div>
-        <div>
-          <h5 class="text-xs uppercase tracking-[0.25em] text-gray-500 mb-4">Légal</h5>
-          <div class="flex flex-col gap-2 text-sm text-gray-300">
-            <a href="#" class="hover:text-white transition-colors">Confidentialité (Loi 25)</a>
-            <a href="#" class="hover:text-white transition-colors">Conditions de vente</a>
-            <span class="text-gray-500">NEQ: 1175689745</span>
-          </div>
+
+          <!-- Version 2 -->
+          <a href="HTML_Codes/dark-playfair-enhanced.html" target="_blank" class="preview-card bg-gray-900 rounded-2xl p-12 hover:bg-gray-800">
+            <div class="text-center">
+              <div class="text-6xl font-display font-bold mb-4">2</div>
+              <h3 class="font-display text-3xl font-bold mb-2">Version 2</h3>
+              <p class="text-gray-400">Dark Playfair Enhanced</p>
+            </div>
+          </a>
+
+          <!-- Version 3 -->
+          <a href="HTML_Codes/light-oswald-enhanced.html" target="_blank" class="preview-card bg-stone-100 rounded-2xl p-12 hover:bg-stone-200">
+            <div class="text-center">
+              <div class="text-6xl font-display font-bold mb-4 text-stone-900">3</div>
+              <h3 class="font-display text-3xl font-bold mb-2 text-stone-900">Version 3</h3>
+              <p class="text-stone-600">Light Oswald Enhanced</p>
+            </div>
+          </a>
+
+          <!-- Version 4 -->
+          <a href="HTML_Codes/light-oswald-minimal.html" target="_blank" class="preview-card bg-stone-100 rounded-2xl p-12 hover:bg-stone-200">
+            <div class="text-center">
+              <div class="text-6xl font-display font-bold mb-4 text-stone-900">4</div>
+              <h3 class="font-display text-3xl font-bold mb-2 text-stone-900">Version 4</h3>
+              <p class="text-stone-600">Light Oswald Minimal</p>
+            </div>
+          </a>
         </div>
       </div>
-      <div class="max-w-7xl mx-auto mt-10 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 gap-3">
-        <span>© 2026 Click Cuisine Inc. Tous droits réservés.</span>
-        <span>Technologie d'assemblage brevetée CA/US</span>
-      </div>
-    </footer>
-
-    <script>
-      lucide.createIcons();
-
-      const navbar = document.getElementById("navbar");
-      const progressBar = document.getElementById("progressBar");
-      const mobileMenu = document.getElementById("mobileMenu");
-      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-      const closeMenuBtn = document.getElementById("closeMenuBtn");
-
-      // Scroll progress + navbar blur
-      window.addEventListener("scroll", () => {
-        const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        progressBar.style.width = `${scrolled}%`;
-
-        if (window.scrollY > 80) {
-          navbar.classList.add("glass", "py-4");
-          navbar.classList.remove("py-6");
-        } else {
-          navbar.classList.remove("glass", "py-4");
-          navbar.classList.add("py-6");
-        }
-      });
-
-      // Mobile menu
-      mobileMenuBtn.addEventListener("click", () => {
-        mobileMenu.classList.add("open");
-        document.body.style.overflow = "hidden";
-      });
-
-      function closeMenu() {
-        mobileMenu.classList.remove("open");
-        document.body.style.overflow = "";
-      }
-
-      closeMenuBtn.addEventListener("click", closeMenu);
-      document.querySelectorAll("#mobileMenu a").forEach((link) => link.addEventListener("click", closeMenu));
-
-      // Animations
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("active");
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.2 }
-      );
-
-      document.querySelectorAll(".fade-in, .fade-in-left").forEach((el) => observer.observe(el));
-    </script>
+    </section>
   </body>
 </html>
