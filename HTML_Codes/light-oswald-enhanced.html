@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Click Cuisine | Innovation &amp; Contact</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Oswald:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+      :root {
+        --font-display: "Oswald", sans-serif;
+        --font-sans: "Inter", sans-serif;
+      }
+      body {
+        font-family: var(--font-sans);
+        background-color: #f5f4f0;
+        color: #1c1917;
+      }
+      .font-display {
+        font-family: var(--font-display);
+      }
+      /* Smooth Scroll & Fade */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      /* Staggered Word Animation */
+      .word-wrapper {
+        display: inline-block;
+        overflow: hidden;
+        vertical-align: bottom;
+        margin-right: 0.25em;
+      }
+      .word-reveal {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(100%);
+        transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+          opacity 0.8s ease;
+      }
+      .word-reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      /* Custom Scrollbar hide */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  </head>
+
+  <body
+    class="antialiased overflow-x-hidden selection:bg-stone-900 selection:text-white text-stone-800"
+  >
+    <!-- 1. Navigation Overlay -->
+    <nav class="fixed top-0 w-full z-50 text-white mix-blend-difference px-8 py-6">
+      <div class="flex justify-between items-start w-full relative">
+        <!-- Left Links -->
+        <div
+          class="hidden md:flex flex-1 gap-12 text-[11px] font-semibold tracking-[0.2em] uppercase pt-2"
+        >
+          <a href="#featured-projects" class="hover:text-stone-300 transition-colors"
+            >Technologie</a
+          >
+          <a href="#services" class="hover:text-stone-300 transition-colors">Catalogue</a>
+          <a href="#contact" class="hover:text-stone-300 transition-colors">Contact</a>
+        </div>
+
+        <!-- Center Logo -->
+        <div class="absolute left-1/2 transform -translate-x-1/2 top-0 text-center">
+          <a href="#" class="block font-display text-4xl font-semibold tracking-tighter uppercase leading-none">
+            Click Cuisine INC.
+          </a>
+        </div>
+
+        <!-- Right Links & CTA -->
+        <div
+          class="hidden md:flex flex-1 justify-end items-center gap-12 text-[11px] font-semibold tracking-[0.2em] uppercase pt-2"
+        >
+          <a href="#about" class="hover:text-stone-300 transition-colors">Notre Histoire</a>
+          <a href="#services" class="hover:text-stone-300 transition-colors">Solutions</a>
+          <a
+            href="#contact"
+            class="flex items-center gap-2 bg-stone-100/10 backdrop-blur-sm border border-white/20 px-5 py-2 rounded-full hover:bg-white hover:text-stone-900 transition-all duration-300"
+          >
+            <span>Nous joindre</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-plus"
+            >
+              <path d="M5 12h14"></path>
+              <path d="M12 5v14"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Mobile Menu -->
+        <button class="md:hidden absolute right-0 top-0 text-white pt-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-menu"
+          >
+            <line x1="4" x2="20" y1="12" y2="12"></line>
+            <line x1="4" x2="20" y1="6" y2="6"></line>
+            <line x1="4" x2="20" y1="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- 2. Intro/About Section (UPDATED) -->
+    <section id="about" class="relative min-h-[90vh] w-full flex items-center justify-center px-6 pt-40 pb-20 overflow-hidden group">
+      <!-- Background Image with Kitchen Modules -->
+      <div class="absolute inset-0 z-0">
+        <img
+          src="../Assets/background-main-kitchen.avif"
+          alt="Cuisine Click Cuisine"
+          class="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-105"
+        />
+        <!-- Gradient Overlay for readability -->
+        <div class="absolute inset-0 bg-gradient-to-t from-[#1C1917] via-[#1C1917]/70 to-black/30"></div>
+      </div>
+
+      <!-- Content -->
+      <div class="relative z-10 max-w-6xl mx-auto">
+        <h1
+          class="animated-text font-display text-4xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight text-[#E7E5E4] font-medium text-center drop-shadow-lg"
+        >
+          Réinventer l'ébénisterie résidentielle. Une conception québécoise, livrée directement à votre porte. Une qualité professionnelle accessible à tous, assemblée en quelques minutes, sans aucun outillage.
+        </h1>
+
+        <div class="mt-16 flex justify-center reveal delay-500">
+          <a
+            href="#contact"
+            class="group relative inline-flex items-center gap-3 border border-stone-400/50 bg-black/20 backdrop-blur-md text-stone-200 px-8 py-4 rounded-full text-xs tracking-widest uppercase hover:bg-white hover:text-stone-900 transition-all duration-300"
+          >
+            <span>Consulter la gamme</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Projects/Brand DNA Section -->
+    <div id="featured-projects" class="w-full bg-stone-900 relative">
+      <section class="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden border-b border-stone-800/20 shadow-2xl">
+        <div class="absolute inset-0 w-full h-full">
+          <img
+            src="../Assets/three-kitchens.avif"
+            class="w-full h-full object-cover brightness-[0.5]"
+            alt="Intérieur Click Cuisine"
+          />
+          <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 w-full max-w-[1800px] mx-auto px-6 md:px-12">
+          <div class="max-w-5xl">
+            <span class="block text-white text-lg font-medium tracking-tight mb-6 opacity-80">L'ADN de la Marque</span>
+            <h2 class="text-white font-display text-7xl md:text-8xl lg:text-9xl font-semibold tracking-tighter leading-[0.9] mb-12">
+              De l'établi<br />à l'innovation
+            </h2>
+            <div>
+              <a href="#" class="inline-flex items-center gap-3 text-white text-base font-semibold uppercase tracking-widest hover:gap-5 transition-all duration-300 group">
+                <span class="border-b border-transparent group-hover:border-white transition-colors">Découvrir notre ingénierie</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- 4. Services Grid -->
+    <section id="services" class="relative z-10 bg-[#F5F4F0] pt-32 pb-32 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-20 border-b border-stone-300 pb-8 reveal">
+          <h3 class="font-display text-4xl md:text-5xl text-stone-900 uppercase tracking-tighter">Notre Technologie</h3>
+          <p class="text-stone-500 text-sm mt-4 md:mt-0 max-w-sm text-justify md:text-right">
+            Une ingénierie inspirée par l'innovation scandinave, garantissant un assemblage intuitif, rapide et structurellement supérieur.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-stone-300 border border-stone-300">
+          <!-- Service 1 -->
+          <div class="bg-[#F5F4F0] p-12 hover:bg-white transition-colors duration-500 group reveal delay-100">
+            <div class="mb-12 opacity-50 group-hover:opacity-100 transition-opacity text-stone-900">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scan-face">
+                <path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
+                <path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
+                <path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
+                <path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>
+              </svg>
+            </div>
+            <h4 class="font-display text-2xl mb-4 uppercase font-medium">Esthétique Épurée</h4>
+            <p class="text-stone-600 text-sm leading-relaxed mb-8">
+              Aucune quincaillerie apparente. Un design minimaliste sans perforations visibles, tant à l'intérieur qu'à l'extérieur du caisson.
+            </p>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="bg-[#F5F4F0] p-12 hover:bg-white transition-colors duration-500 group reveal delay-200">
+            <div class="mb-12 opacity-50 group-hover:opacity-100 transition-opacity text-stone-900">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-box">
+                <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path>
+                <path d="m3.3 7 8.7 5 8.7-5"></path>
+                <path d="M12 22V12"></path>
+              </svg>
+            </div>
+            <h4 class="font-display text-2xl mb-4 uppercase font-medium">Intégrité Structurelle</h4>
+            <p class="text-stone-600 text-sm leading-relaxed mb-8">
+              Joint continu sur toute la longueur pour une équerrage automatique et une rigidité surpassant les standards de l'industrie.
+            </p>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="bg-[#F5F4F0] p-12 hover:bg-white transition-colors duration-500 group reveal delay-300">
+            <div class="mb-12 opacity-50 group-hover:opacity-100 transition-opacity text-stone-900">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hammer">
+                <path d="m15 12-8.5 8.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0a2.12 2.12 0 0 1 0-3L12 9"></path>
+                <path d="M17.64 15 22 10.64"></path>
+                <path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25V2.46V2a2 2 0 0 0-2-2H3v3h13.75c.85 0 1.65.33 2.25.93l1.25 1.25a3 3 0 0 1 0 4.24l-1.6 1.6a3 3 0 0 0 0 4.24l1.6 1.6a3 3 0 0 0 4.24 0l1.6-1.6a3 3 0 0 1 0-4.24Z"></path>
+              </svg>
+            </div>
+            <h4 class="font-display text-2xl mb-4 uppercase font-medium">Assemblage Intuitif</h4>
+            <p class="text-stone-600 text-sm leading-relaxed mb-8">
+              Élimination des pièces complexes. Un montage logique, constant et sans erreur, ne nécessitant aucune expertise technique.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Features & Performance -->
+    <section class="relative z-10 bg-white py-32 px-6 border-b border-stone-200">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
+        
+        <!-- Left Column: Feature List -->
+        <div class="lg:col-span-4 reveal">
+          <span class="block font-display text-xl mb-8 uppercase tracking-widest text-stone-900">Performance</span>
+          <div class="flex flex-col text-sm text-stone-900 font-medium">
+            <div class="flex justify-between items-center py-4 border-b border-stone-200">
+              <span class="opacity-40 text-xs font-mono">01</span>
+              <span class="uppercase tracking-wide">Rapidité d'exécution</span>
+            </div>
+            <div class="flex justify-between items-center py-4 border-b border-stone-200">
+              <span class="opacity-40 text-xs font-mono">02</span>
+              <span class="uppercase tracking-wide">Simplicité Totale</span>
+            </div>
+            <div class="flex justify-between items-center py-4 border-b border-stone-200">
+              <span class="opacity-40 text-xs font-mono">03</span>
+              <span class="uppercase tracking-wide">Solidité Industrielle</span>
+            </div>
+            <div class="flex justify-between items-center py-4 border-b border-stone-200">
+              <span class="opacity-40 text-xs font-mono">04</span>
+              <span class="uppercase tracking-wide">Système Réversible</span>
+            </div>
+            <div class="flex justify-between items-center py-4 border-b border-stone-200">
+              <span class="opacity-40 text-xs font-mono">05</span>
+              <span class="uppercase tracking-wide">Temps optimisé</span>
+            </div>
+            <div class="flex justify-between items-center py-4 border-b border-stone-200">
+              <span class="opacity-40 text-xs font-mono">06</span>
+              <span class="uppercase tracking-wide">Moins de 60 secondes</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Description -->
+        <div class="lg:col-span-8 flex flex-col justify-center reveal delay-100">
+          <h2 class="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight text-stone-900 mb-12">
+            Une rapidité d'installation inégalée : jusqu'à 10 fois plus rapide que les standards du marché. Aucun outillage requis.
+          </h2>
+
+          <p class="text-stone-600 text-lg leading-relaxed mb-16 max-w-2xl">
+            Notre système breveté assure une stabilité structurelle supérieure tout en restant entièrement démontable sans altération — la solution idéale pour une installation permanente ou temporaire.
+          </p>
+
+          <div>
+            <a
+              href="#contact"
+              class="inline-block bg-stone-900 text-white px-8 py-4 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-stone-700 transition-colors"
+            >
+              Demander le catalogue technique <span class="ml-2 opacity-50">○</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Contact -->
+    <section id="contact" class="relative bg-white text-stone-900 min-h-[60vh] flex flex-col items-center justify-center overflow-hidden z-10 py-32">
+      <div class="max-w-[1400px] w-full px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
+        <!-- Left Side -->
+        <div class="lg:col-span-8 flex flex-col gap-8 reveal">
+          <h3 class="font-display text-5xl md:text-7xl lg:text-8xl uppercase tracking-tighter leading-[0.9] text-stone-900">
+            Démarrer votre<br />projet
+          </h3>
+
+          <h4 class="text-xl md:text-2xl text-stone-500 font-light max-w-xl leading-relaxed">
+            Pour toute demande d'information, soumission ou opportunité de partenariat, notre équipe est à votre disposition.
+          </h4>
+        </div>
+
+        <!-- Right Side -->
+        <div class="lg:col-span-4 flex flex-col items-start lg:items-end justify-center reveal delay-100">
+          <a
+            href="mailto:info@clickcuisine.com"
+            class="inline-block bg-stone-900 text-white px-10 py-5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-stone-700 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+          >
+            Nous écrire <span class="ml-2 opacity-50">○</span>
+          </a>
+
+          <div class="mt-12 text-left lg:text-right space-y-2">
+            <p class="text-xs font-bold text-stone-400 uppercase tracking-widest">Courriel direct</p>
+            <p class="text-xl font-display font-medium text-stone-900 border-b border-stone-300 pb-1">
+              info@clickcuisine.com
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Footer (REDESIGNED: DARK THEME & PREMIUM) -->
+    <footer class="bg-[#1C1917] text-stone-400 pt-24 pb-10 px-6 border-t border-stone-800 relative z-10 overflow-hidden">
+        
+      <!-- Decorative Gradient Element -->
+      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-stone-700 to-transparent opacity-50"></div>
+      <div class="absolute -top-40 -right-40 w-96 h-96 bg-stone-800/20 rounded-full blur-3xl pointer-events-none"></div>
+      
+      <div class="max-w-7xl mx-auto">
+        <!-- Main Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-20">
+          
+          <!-- Brand & Socials (5 cols) -->
+          <div class="md:col-span-5 flex flex-col justify-between h-full pr-8">
+            <div>
+              <a href="#" class="block font-display text-3xl font-bold tracking-tighter uppercase text-white mb-6">CLICK CUISINE INC.</a>
+              <p class="text-sm text-stone-500 leading-relaxed max-w-sm mb-8">
+                L'innovation au service de l'ébénisterie résidentielle. Conception et ingénierie québécoise pour des espaces de vie modernes.
+              </p>
+            </div>
+            
+            <!-- Social Icons -->
+            <div class="flex items-center gap-4">
+              <a href="#" class="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center text-white hover:bg-white hover:text-[#1C1917] transition-all duration-300 group">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+              <a href="#" class="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center text-white hover:bg-white hover:text-[#1C1917] transition-all duration-300 group">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+              </a>
+              <a href="#" class="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center text-white hover:bg-white hover:text-[#1C1917] transition-all duration-300 group">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Contact (3 cols) -->
+          <div class="md:col-span-3">
+            <h5 class="text-[11px] font-bold uppercase tracking-[0.2em] text-stone-600 mb-8">Contact</h5>
+            <div class="space-y-6">
+              <div>
+                 <p class="text-xs font-bold text-stone-500 uppercase tracking-widest mb-1">Courriel</p>
+                 <a href="mailto:info@clickcuisine.com" class="text-sm text-white hover:text-stone-300 transition-colors border-b border-stone-700 pb-0.5">info@clickcuisine.com</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation (2 cols) -->
+          <div class="md:col-span-2">
+            <h5 class="text-[11px] font-bold uppercase tracking-[0.2em] text-stone-600 mb-8">Navigation</h5>
+            <ul class="flex flex-col gap-4 text-sm font-medium">
+              <li><a href="#" class="text-stone-300 hover:text-white transition-colors flex items-center gap-2 group"><span class="w-1 h-1 bg-stone-600 rounded-full group-hover:bg-white transition-colors"></span> Accueil</a></li>
+              <li><a href="#featured-projects" class="text-stone-300 hover:text-white transition-colors flex items-center gap-2 group"><span class="w-1 h-1 bg-stone-600 rounded-full group-hover:bg-white transition-colors"></span> Technologie</a></li>
+              <li><a href="#services" class="text-stone-300 hover:text-white transition-colors flex items-center gap-2 group"><span class="w-1 h-1 bg-stone-600 rounded-full group-hover:bg-white transition-colors"></span> Catalogue</a></li>
+              <li><a href="#contact" class="text-stone-300 hover:text-white transition-colors flex items-center gap-2 group"><span class="w-1 h-1 bg-stone-600 rounded-full group-hover:bg-white transition-colors"></span> Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Legal & Action (2 cols) -->
+          <div class="md:col-span-2 flex flex-col justify-between">
+            <div>
+                <h5 class="text-[11px] font-bold uppercase tracking-[0.2em] text-stone-600 mb-8">Légal</h5>
+                <ul class="flex flex-col gap-3 text-xs text-stone-500">
+                <li><a href="#" class="hover:text-stone-300 transition-colors">Confidentialité (Loi 25)</a></li>
+                <li><a href="#" class="hover:text-stone-300 transition-colors">Conditions de Vente</a></li>
+                <li><span>NEQ: 1175689745</span></li>
+                </ul>
+            </div>
+            
+            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="hidden md:flex items-center gap-2 text-[10px] uppercase tracking-widest text-stone-500 hover:text-white transition-colors mt-8 group">
+                Haut de page
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up group-hover:-translate-y-1 transition-transform"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="flex flex-col md:flex-row justify-between items-center text-[10px] text-stone-600 uppercase tracking-widest border-t border-stone-800 pt-8 gap-4">
+          <span>© 2026 Click Cuisine Inc. / Click Kitchen Inc.</span>
+          <span class="hidden md:inline-block">Technologie d'assemblage brevetée</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Initialize Icons
+      lucide.createIcons();
+
+      // Intersection Observer
+      document.addEventListener("DOMContentLoaded", () => {
+        /* --- Basic Reveal --- */
+        const observerOptions = {
+          root: null,
+          rootMargin: "0px",
+          threshold: 0.1,
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        const revealElements = document.querySelectorAll(".reveal");
+        revealElements.forEach((el) => observer.observe(el));
+
+        /* --- Text Animation --- */
+        const textElement = document.querySelector(".animated-text");
+        if (textElement) {
+          const text = textElement.innerText;
+          textElement.innerHTML = "";
+          const words = text.split(" ");
+
+          words.forEach((word, index) => {
+            const wrapper = document.createElement("span");
+            wrapper.className = "word-wrapper";
+
+            const span = document.createElement("span");
+            span.innerText = word + "\u00A0";
+            span.className = "word-reveal";
+            span.style.transitionDelay = `${index * 30}ms`;
+
+            wrapper.appendChild(span);
+            textElement.appendChild(wrapper);
+          });
+
+          const textObserver = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                const spans = entry.target.querySelectorAll(".word-reveal");
+                if (entry.isIntersecting) {
+                  spans.forEach((span) => span.classList.add("visible"));
+                } else {
+                  if (entry.boundingClientRect.y > 0) {
+                    spans.forEach((span) => span.classList.remove("visible"));
+                  }
+                }
+              });
+            },
+            { threshold: 0.2 }
+          );
+
+          textObserver.observe(textElement);
+        }
+      });
+    </script>
+  </body>
+</html>

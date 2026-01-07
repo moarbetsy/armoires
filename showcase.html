@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio - 4 Versions de Sites Web</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+      :root {
+        --font-display: "Playfair Display", serif;
+        --font-sans: "Inter", sans-serif;
+      }
+
+      body {
+        font-family: var(--font-sans);
+        background: #0a0a0a;
+        color: #f5f5f5;
+      }
+
+      .font-display {
+        font-family: var(--font-display);
+      }
+
+      .preview-card {
+        transition: all 0.4s ease;
+        position: relative;
+        display: block;
+        cursor: pointer;
+      }
+
+      .preview-card:hover {
+        transform: translateY(-8px);
+      }
+    </style>
+  </head>
+  <body class="antialiased">
+    <section class="min-h-screen py-20 px-6 flex items-center">
+      <div class="max-w-7xl mx-auto w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Version 1 -->
+          <a href="HTML_Codes/dark-playfair-basic.html" target="_blank" class="preview-card bg-gray-900 rounded-2xl p-12 hover:bg-gray-800">
+            <div class="text-center">
+              <div class="text-6xl font-display font-bold mb-4">1</div>
+              <h3 class="font-display text-3xl font-bold mb-2">Version 1</h3>
+              <p class="text-gray-400">Dark Playfair Basic</p>
+            </div>
+          </a>
+
+          <!-- Version 2 -->
+          <a href="HTML_Codes/dark-playfair-enhanced.html" target="_blank" class="preview-card bg-gray-900 rounded-2xl p-12 hover:bg-gray-800">
+            <div class="text-center">
+              <div class="text-6xl font-display font-bold mb-4">2</div>
+              <h3 class="font-display text-3xl font-bold mb-2">Version 2</h3>
+              <p class="text-gray-400">Dark Playfair Enhanced</p>
+            </div>
+          </a>
+
+          <!-- Version 3 -->
+          <a href="HTML_Codes/light-oswald-enhanced.html" target="_blank" class="preview-card bg-stone-100 rounded-2xl p-12 hover:bg-stone-200">
+            <div class="text-center">
+              <div class="text-6xl font-display font-bold mb-4 text-stone-900">3</div>
+              <h3 class="font-display text-3xl font-bold mb-2 text-stone-900">Version 3</h3>
+              <p class="text-stone-600">Light Oswald Enhanced</p>
+            </div>
+          </a>
+
+          <!-- Version 4 -->
+          <a href="HTML_Codes/light-oswald-minimal.html" target="_blank" class="preview-card bg-stone-100 rounded-2xl p-12 hover:bg-stone-200">
+            <div class="text-center">
+              <div class="text-6xl font-display font-bold mb-4 text-stone-900">4</div>
+              <h3 class="font-display text-3xl font-bold mb-2 text-stone-900">Version 4</h3>
+              <p class="text-stone-600">Light Oswald Minimal</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

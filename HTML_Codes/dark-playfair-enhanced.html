@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Click Cuisine | L'Innovation Québécoise en Ébénisterie</title>
+    <meta name="description" content="Une technologie d'assemblage révolutionnaire. Montage en 60 secondes, sans outils. 100% Québécois." />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config for Custom Colors/Fonts -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Playfair Display', 'serif'],
+            },
+            colors: {
+              gold: {
+                50: '#FBF8F1',
+                100: '#F5F0DF',
+                200: '#EADFC0',
+                300: '#DFCFA1',
+                400: '#D4BF82',
+                500: '#C9AF63', // Main Gold
+                600: '#A18C4F',
+                700: '#79693B',
+                800: '#504628',
+                900: '#282314',
+              }
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      :root {
+        --font-display: "Playfair Display", serif;
+        --font-sans: "Inter", sans-serif;
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0a0a0a;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+
+      /* Selection */
+      ::selection {
+        background: rgba(255, 255, 255, 0.2);
+        color: #ffffff;
+      }
+
+      body {
+        font-family: var(--font-sans);
+        background-color: #050505;
+        color: #f5f5f5;
+        overflow-x: hidden;
+      }
+
+      /* Animations */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: opacity, transform;
+      }
+
+      .fade-in.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .fade-in-left {
+        opacity: 0;
+        transform: translateX(-40px);
+        transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .fade-in-left.active {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .gradient-text {
+        background: linear-gradient(135deg, #ffffff 0%, #a8a8a8 50%, #666666 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Glassmorphism */
+      .glass {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      
+      .glass-card {
+        background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Mobile Menu */
+      .mobile-menu {
+        transform: translateX(100%);
+        transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+      }
+
+      .mobile-menu.open {
+        transform: translateX(0);
+      }
+
+      /* Stat Counting Animation */
+      @keyframes countUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .stat-item {
+        opacity: 0; /* Hidden initially */
+      }
+      
+      .stat-item.active {
+        animation: countUp 0.8s ease-out forwards;
+      }
+
+      /* Image Zoom Hover */
+      .zoom-image {
+        overflow: hidden;
+      }
+
+      .zoom-image img {
+        transition: transform 0.7s cubic-bezier(0.2, 1, 0.2, 1);
+      }
+
+      .zoom-image:hover img {
+        transform: scale(1.05);
+      }
+
+      /* Progress Bar */
+      .progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #ffffff, #666666);
+        z-index: 9999;
+        width: 0%;
+        transition: width 0.1s linear;
+      }
+      
+      /* Smooth geometric bg */
+      .bg-grid {
+        background-size: 40px 40px;
+        background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                          linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      }
+    </style>
+  </head>
+  <body class="antialiased selection:bg-white/20 selection:text-white">
+    
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 px-6 md:px-12 py-6 transition-all duration-300" id="navbar">
+      <div class="max-w-[1800px] mx-auto flex justify-between items-center">
+        <a href="#" class="font-display text-2xl md:text-3xl font-bold tracking-tight text-white hover:text-gray-300 transition-colors z-50 relative">
+          CLICK CUISINE
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center gap-10 text-sm font-medium tracking-wide">
+          <a href="#technology" class="text-gray-400 hover:text-white transition-colors py-2 relative group">
+            Technologie
+            <span class="absolute bottom-0 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="#process" class="text-gray-400 hover:text-white transition-colors py-2 relative group">
+            Processus
+            <span class="absolute bottom-0 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="#contact" class="glass px-8 py-3 rounded-full text-white hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105">
+            Nous joindre
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden text-white z-50 relative p-2" id="mobileMenuBtn" aria-label="Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" x2="20" y1="12" y2="12"></line>
+            <line x1="4" x2="20" y1="6" y2="6"></line>
+            <line x1="4" x2="20" y1="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu fixed inset-0 bg-black z-40 md:hidden flex flex-col items-center justify-center gap-10" id="mobileMenu">
+      <div class="absolute inset-0 bg-grid opacity-20 pointer-events-none"></div>
+      <button class="absolute top-8 right-8 text-white p-4" id="closeMenuBtn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 6 6 18"></path>
+          <path d="m6 6 12 12"></path>
+        </svg>
+      </button>
+      <a href="#technology" class="font-display text-4xl text-gray-400 hover:text-white transition-colors hover:scale-110 transform duration-300">Technologie</a>
+      <a href="#process" class="font-display text-4xl text-gray-400 hover:text-white transition-colors hover:scale-110 transform duration-300">Processus</a>
+      <a href="#contact" class="font-display text-4xl text-white hover:text-gray-300 transition-colors mt-8">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <!-- Hero Background Image -->
+      <div class="absolute inset-0">
+        <img src="../Assets/background-main-kitchen.avif"
+             class="w-full h-full object-cover opacity-60 scale-105 animate-subtle-zoom"
+             alt="Cuisine Click Cuisine"
+             loading="eager" />
+        <div class="absolute inset-0 bg-gradient-to-b from-black/90 via-black/40 to-[#050505]"></div>
+      </div>
+
+      <!-- Animated Glows -->
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-white/5 rounded-full blur-[120px] animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-white/5 rounded-full blur-[120px] animate-pulse" style="animation-delay: 2s;"></div>
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-6 text-center mt-20">
+        <div class="mb-10 fade-in flex justify-center">
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 glass rounded-full text-xs md:text-sm tracking-[0.2em] text-gray-300 uppercase">
+            <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+            Innovation Québécoise
+          </span>
+        </div>
+        
+        <h1 class="font-display text-5xl md:text-7xl lg:text-9xl font-bold mb-8 leading-[1] fade-in tracking-tight">
+          <span class="gradient-text">L'Ébénisterie</span><br />
+          <span class="text-white">Réinventée</span>
+        </h1>
+        
+        <p class="text-lg md:text-2xl text-gray-300/80 max-w-2xl mx-auto mb-12 leading-relaxed fade-in font-light" style="animation-delay: 0.2s;">
+          Ce n'est pas une nouvelle technologie. Seulement cuisine pré-fab facile à installer et fait sur mesure.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center fade-in" style="animation-delay: 0.4s;">
+          <a href="#contact" class="group px-10 py-4 bg-white text-black rounded-full font-semibold text-sm tracking-wide hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)] flex items-center gap-3">
+            Démarrer un projet
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+          <a href="#technology" class="px-10 py-4 glass rounded-full font-semibold text-sm tracking-wide text-white hover:bg-white/10 transition-all duration-300 flex items-center gap-3">
+            Découvrir la technologie
+          </a>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 mt-24 max-w-5xl mx-auto border-t border-white/10 pt-12">
+          <div class="stat-item text-center group" style="animation-delay: 0.6s;">
+            <div class="text-4xl md:text-5xl font-bold text-white font-display mb-2 group-hover:text-gray-300 transition-colors">10x</div>
+            <div class="text-xs uppercase tracking-widest text-gray-500">Plus rapide</div>
+          </div>
+          <div class="stat-item text-center group" style="animation-delay: 0.7s;">
+            <div class="text-4xl md:text-5xl font-bold text-white font-display mb-2 group-hover:text-gray-300 transition-colors">&lt;60s</div>
+            <div class="text-xs uppercase tracking-widest text-gray-500">Par Caisson</div>
+          </div>
+          <div class="stat-item text-center group" style="animation-delay: 0.8s;">
+            <div class="text-4xl md:text-5xl font-bold text-white font-display mb-2 group-hover:text-gray-300 transition-colors">0</div>
+            <div class="text-xs uppercase tracking-widest text-gray-500">Outils requis</div>
+          </div>
+          <div class="stat-item text-center group" style="animation-delay: 0.9s;">
+            <div class="text-4xl md:text-5xl font-bold text-white font-display mb-2 group-hover:text-gray-300 transition-colors">100%</div>
+            <div class="text-xs uppercase tracking-widest text-gray-500">Québécois</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 animate-bounce">
+        <span class="text-[10px] uppercase tracking-widest">Défiler</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m6 9 6 6 6-6"></path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology" class="relative py-32 px-6 overflow-hidden bg-[#050505]">
+      <!-- Background Grid Decoration -->
+      <div class="absolute top-0 right-0 w-1/2 h-full bg-grid opacity-20 pointer-events-none fade-in"></div>
+
+      <div class="max-w-7xl mx-auto relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="fade-in-left zoom-image rounded-sm overflow-hidden relative group">
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+            <img src="../Assets/white-small-kitchen.avif"
+                 class="w-full h-[600px] object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                 alt="Détail Click Cuisine"
+                 loading="lazy" />
+            <!-- Detail Marker -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 border border-white/30 rounded-full flex items-center justify-center backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20">
+               <span class="text-xs tracking-widest">JOINTS</span>
+            </div>
+          </div>
+
+          <div class="fade-in lg:pl-10">
+            <span class="text-xs tracking-[0.2em] text-gray-500 uppercase mb-6 block border-l-2 border-white pl-4">Notre ADN</span>
+            <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-[1.1]">
+              De l'établi à <br /><span class="gradient-text italic pr-2">l'innovation</span>
+            </h2>
+            <p class="text-lg text-gray-400 leading-relaxed mb-8 font-light">
+              Notre système d'assemblage breveté combine l'ingénierie de précision scandinave 
+              avec le savoir-faire brut québécois. Un joint continu sur toute la longueur garantit 
+              un équerrage automatique et une rigidité inégalée, supérieure aux méthodes traditionnelles.
+            </p>
+            <p class="text-lg text-gray-400 leading-relaxed mb-12 font-light">
+              Chaque caisson s'assemble intuitivement. C'est une révolution silencieuse dans l'industrie de 
+              l'ébénisterie résidentielle, réduisant les coûts de main-d'œuvre sans sacrifier la qualité.
+            </p>
+            
+            <div class="flex gap-8">
+                <div class="flex flex-col">
+                    <span class="text-3xl font-display font-bold text-white">20+</span>
+                    <span class="text-xs text-gray-500 uppercase tracking-wider mt-1">Brevets</span>
+                </div>
+                <div class="w-px h-12 bg-white/10"></div>
+                <div class="flex flex-col">
+                    <span class="text-3xl font-display font-bold text-white">50k</span>
+                    <span class="text-xs text-gray-500 uppercase tracking-wider mt-1">Cycles testés</span>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="relative py-32 px-6 bg-gradient-to-b from-[#050505] to-black">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-24 fade-in">
+          <span class="text-xs tracking-[0.2em] text-gray-500 uppercase mb-4 block">Notre Approche</span>
+          <h2 class="font-display text-4xl md:text-6xl font-bold text-white mb-6">Processus simplifié</h2>
+          <p class="text-xl text-gray-400 max-w-3xl mx-auto font-light">
+            De la conception à l'installation, nous avons supprimé les frictions.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <!-- Step 1 -->
+          <div class="fade-in group" style="animation-delay: 0.1s;">
+            <div class="glass-card rounded-xl p-8 h-full hover:-translate-y-2 transition-transform duration-500 relative overflow-hidden">
+              <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+              </div>
+              <div class="text-5xl font-bold text-white/10 font-display mb-8 group-hover:text-white/30 transition-colors">01</div>
+              <h4 class="text-xl font-semibold text-white mb-4">Consultation</h4>
+              <p class="text-sm text-gray-400 leading-relaxed">
+                Analyse ergonomique et esthétique de vos besoins via notre plateforme virtuelle ou en personne.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="fade-in group" style="animation-delay: 0.2s;">
+            <div class="glass-card rounded-xl p-8 h-full hover:-translate-y-2 transition-transform duration-500 relative overflow-hidden">
+               <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19 7-7 3 3-7 7-3-3z"></path><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="m2 2 7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+              </div>
+              <div class="text-5xl font-bold text-white/10 font-display mb-8 group-hover:text-white/30 transition-colors">02</div>
+              <h4 class="text-xl font-semibold text-white mb-4">Conception</h4>
+              <p class="text-sm text-gray-400 leading-relaxed">
+                Modélisation 3D photoréaliste. Chaque millimètre est optimisé pour votre espace.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="fade-in group" style="animation-delay: 0.3s;">
+            <div class="glass-card rounded-xl p-8 h-full hover:-translate-y-2 transition-transform duration-500 relative overflow-hidden">
+               <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path><path d="M10 6h4"></path><path d="M10 10h4"></path><path d="M10 14h4"></path><path d="M10 18h4"></path></svg>
+              </div>
+              <div class="text-5xl font-bold text-white/10 font-display mb-8 group-hover:text-white/30 transition-colors">03</div>
+              <h4 class="text-xl font-semibold text-white mb-4">Fabrication</h4>
+              <p class="text-sm text-gray-400 leading-relaxed">
+                Usinage numérique de précision au dixième de millimètre.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="fade-in group" style="animation-delay: 0.4s;">
+            <div class="glass-card rounded-xl p-8 h-full hover:-translate-y-2 transition-transform duration-500 relative overflow-hidden">
+               <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+              </div>
+              <div class="text-5xl font-bold text-white/10 font-display mb-8 group-hover:text-white/30 transition-colors">04</div>
+              <h4 class="text-xl font-semibold text-white mb-4">Installation</h4>
+              <p class="text-sm text-gray-400 leading-relaxed">
+                Livraison à plat (Flat-pack). Assemblage Click ultra-rapide par vous ou nos pros.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="relative py-40 px-6 overflow-hidden">
+      <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-zinc-900"></div>
+        <!-- Decorative blurred orbs -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-30">
+          <div class="absolute top-1/2 left-1/3 w-[600px] h-[600px] bg-gray-500 rounded-full blur-[150px] mix-blend-overlay"></div>
+        </div>
+      </div>
+
+      <div class="relative z-10 max-w-5xl mx-auto text-center fade-in">
+        <h2 class="font-display text-5xl md:text-7xl font-bold mb-8 leading-tight">
+          Prêt à transformer <br />votre <span class="gradient-text">espace</span>?
+        </h2>
+        <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed font-light">
+          Discutons de votre projet et découvrez comment Click Cuisine peut révolutionner 
+          votre expérience d'ébénisterie et réduire vos coûts.
+        </p>
+        <a href="#contact" class="inline-flex items-center gap-3 px-12 py-6 bg-white text-black rounded-full font-semibold text-lg hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_50px_-15px_rgba(255,255,255,0.4)] group">
+          Obtenir une soumission
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform">
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="relative py-32 px-6 bg-[#050505]">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+          <div class="fade-in-left">
+            <h3 class="font-display text-4xl md:text-5xl font-bold mb-6">
+              Commençons <br />une <span class="gradient-text">conversation</span>
+            </h3>
+            <p class="text-gray-400 text-lg mb-12 leading-relaxed font-light">
+              Que ce soit pour une nouvelle cuisine, un projet commercial de grande envergure ou une simple question technique, 
+              notre équipe est prête.
+            </p>
+
+            <form class="space-y-6" onsubmit="event.preventDefault(); alert('Merci! Votre message a été reçu.');">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-2">
+                  <label class="text-xs text-gray-500 uppercase tracking-wider ml-1">Prénom</label>
+                  <input type="text" class="w-full px-6 py-4 glass rounded-xl text-white placeholder-gray-600 focus:outline-none focus:ring-1 focus:ring-white/50 focus:bg-white/5 transition-all" />
+                </div>
+                <div class="space-y-2">
+                   <label class="text-xs text-gray-500 uppercase tracking-wider ml-1">Nom</label>
+                  <input type="text" class="w-full px-6 py-4 glass rounded-xl text-white placeholder-gray-600 focus:outline-none focus:ring-1 focus:ring-white/50 focus:bg-white/5 transition-all" />
+                </div>
+              </div>
+              <div class="space-y-2">
+                 <label class="text-xs text-gray-500 uppercase tracking-wider ml-1">Courriel</label>
+                <input type="email" class="w-full px-6 py-4 glass rounded-xl text-white placeholder-gray-600 focus:outline-none focus:ring-1 focus:ring-white/50 focus:bg-white/5 transition-all" />
+              </div>
+              <div class="space-y-2">
+                 <label class="text-xs text-gray-500 uppercase tracking-wider ml-1">Projet</label>
+                <textarea rows="4" class="w-full px-6 py-4 glass rounded-xl text-white placeholder-gray-600 focus:outline-none focus:ring-1 focus:ring-white/50 focus:bg-white/5 transition-all resize-none"></textarea>
+              </div>
+              <button type="submit" class="w-full md:w-auto px-10 py-4 bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition-all duration-300 hover:scale-[1.02]">
+                Obtenir une soumission
+              </button>
+            </form>
+          </div>
+
+          <div class="fade-in space-y-12 lg:pt-8">
+            <div>
+              <h4 class="text-xs tracking-[0.2em] text-gray-500 uppercase mb-6 flex items-center gap-2">
+                <span class="w-8 h-px bg-gray-700"></span> Coordonnées
+              </h4>
+              <div class="space-y-6">
+                <div class="group cursor-pointer">
+                  <p class="text-sm text-gray-500 mb-1 group-hover:text-white transition-colors">Courriel</p>
+                  <a href="mailto:info@clickcuisine.com" class="text-2xl font-display text-white hover:text-gray-300 transition-colors border-b border-transparent hover:border-white pb-1">
+                    info@clickcuisine.com
+                  </a>
+                </div>
+                <div class="group cursor-pointer">
+                  <p class="text-sm text-gray-500 mb-1 group-hover:text-white transition-colors">Téléphone</p>
+                  <a href="tel:+15141234567" class="text-2xl font-display text-white hover:text-gray-300 transition-colors border-b border-transparent hover:border-white pb-1">
+                    +1 (514) 123-4567
+                  </a>
+                </div>
+              </div>
+            </div>
+
+
+            <div>
+              <h4 class="text-xs tracking-[0.2em] text-gray-500 uppercase mb-6">Réseaux</h4>
+              <div class="flex gap-4">
+                <a href="#" class="w-14 h-14 glass rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 group">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                  </svg>
+                </a>
+                <a href="#" class="w-14 h-14 glass rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 group">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect width="4" height="12" x="2" y="9"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative border-t border-white/5 py-20 px-6 bg-[#020202]">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
+          <div class="md:col-span-2">
+            <a href="#" class="font-display text-3xl font-bold tracking-tight text-white hover:text-gray-300 transition-colors block mb-6">
+              CLICK CUISINE
+            </a>
+            <p class="text-gray-500 leading-relaxed max-w-sm mb-6 text-sm">
+              L'innovation au service de l'ébénisterie résidentielle. 
+              Une conception fièrement québécoise qui redéfinit les standards de l'industrie par la simplicité.
+            </p>
+          </div>
+
+          <div>
+            <h5 class="text-xs font-semibold text-white mb-6 tracking-widest uppercase">Navigation</h5>
+            <div class="space-y-4">
+              <a href="#technology" class="block text-gray-500 hover:text-white transition-colors text-sm">Technologie</a>
+              <a href="#process" class="block text-gray-500 hover:text-white transition-colors text-sm">Processus</a>
+              <a href="#contact" class="block text-gray-500 hover:text-white transition-colors text-sm">Contact</a>
+            </div>
+          </div>
+
+          <div>
+            <h5 class="text-xs font-semibold text-white mb-6 tracking-widest uppercase">Légal</h5>
+            <div class="space-y-4">
+              <a href="#" class="block text-gray-500 hover:text-white transition-colors text-sm">Confidentialité</a>
+              <a href="#" class="block text-gray-500 hover:text-white transition-colors text-sm">Conditions d'utilisation</a>
+              <p class="text-gray-700 text-sm pt-4">NEQ: 1175689745</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6 pt-8 border-t border-white/5">
+          <p class="text-xs text-gray-600">
+            © 2026 Click Cuisine Inc. Tous droits réservés.
+          </p>
+          <p class="text-xs text-gray-600 flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-white/50"></span>
+            Technologie brevetée CA/US
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Scroll Progress Bar
+      window.addEventListener('scroll', function() {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById('progressBar').style.width = scrolled + '%';
+      });
+
+      // Navbar Glass Effect
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+          navbar.classList.add('glass');
+          navbar.classList.add('py-4');
+          navbar.classList.remove('py-6');
+        } else {
+          navbar.classList.remove('glass');
+          navbar.classList.remove('py-4');
+          navbar.classList.add('py-6');
+        }
+      });
+
+      // Mobile Menu Logic
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const closeMenuBtn = document.getElementById('closeMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+
+      mobileMenuBtn.addEventListener('click', function() {
+        mobileMenu.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+
+      function closeMenu() {
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      closeMenuBtn.addEventListener('click', closeMenu);
+
+      document.querySelectorAll('#mobileMenu a').forEach(function(link) {
+        link.addEventListener('click', closeMenu);
+      });
+
+      // Intersection Observer for animations
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            // Stop observing once animated
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Elements to animate fade in
+      document.querySelectorAll('.fade-in, .fade-in-left').forEach(function(el) {
+        observer.observe(el);
+      });
+
+      // Stats Counter Animation
+      const statsObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if(entry.isIntersecting) {
+            entry.target.classList.add('active');
+            statsObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      document.querySelectorAll('.stat-item').forEach(function(el) {
+        statsObserver.observe(el);
+      });
+
+      // Smooth Scroll
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
