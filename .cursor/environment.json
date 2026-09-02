@@ -1,0 +1,16 @@
+{
+  "name": "Click Cuisine — static site",
+  "ports": [
+    {
+      "name": "web",
+      "port": 8000
+    }
+  ],
+  "terminals": [
+    {
+      "name": "web",
+      "command": "python3 -m http.server 8000 --directory /workspace",
+      "description": "Static dev server for the site. Open http://localhost:8000/index.html (portfolio landing) or http://localhost:8000/click-cuisine.html (main Click Cuisine site)."
+    }
+  ]
+}
