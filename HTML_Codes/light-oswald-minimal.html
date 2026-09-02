@@ -4,28 +4,65 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Click Cuisine | Innovation &amp; Contact</title>
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Oswald:wght@400;500;600&amp;display=swap" rel="stylesheet" />
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-      :root {
-        --font-display: "Oswald", sans-serif;
-        --font-sans: "Inter", sans-serif;
-      }
+    <meta
+      name="description"
+      content="Click Cuisine : armoires de cuisine québécoises de qualité professionnelle, livrées à votre porte et assemblées en quelques minutes, sans outils."
+    />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231c1917'/%3E%3Ctext x='16' y='23' font-size='20' text-anchor='middle' fill='%23fff' font-family='Arial,sans-serif'%3EC%3C/text%3E%3C/svg%3E" />
+    <!-- Compiled Tailwind + critical @font-face inlined at build time (tools/build.js) -->
+    <style data-app-css>@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/inter-latin-400-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../assets/fonts/oswald-latin-500-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:Inter,sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0}.left-1\/2{left:50%}.right-0{right:0}.top-0{top:0}.z-10{z-index:10}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-12{margin-bottom:3rem}.mb-6{margin-bottom:1.5rem}.mt-16{margin-top:4rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.hidden{display:none}.h-full{height:100%}.h-screen{height:100vh}.min-h-\[90vh\]{min-height:90vh}.w-full{width:100%}.max-w-5xl{max-width:64rem}.max-w-6xl{max-width:72rem}.max-w-\[1800px\]{max-width:1800px}.flex-1{flex:1 1 0%}.-translate-x-1\/2{--tw-translate-x:-50%}.-translate-x-1\/2,.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-12{gap:3rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.overflow-hidden{overflow:hidden}.overflow-x-hidden{overflow-x:hidden}.rounded-full{border-radius:9999px}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-stone-700{--tw-border-opacity:1;border-color:rgb(68 64 60/var(--tw-border-opacity,1))}.border-stone-800\/20{border-color:rgba(41,37,36,.2)}.border-transparent{border-color:transparent}.border-white\/20{border-color:hsla(0,0%,100%,.2)}.bg-\[\#1C1917\]{--tw-bg-opacity:1;background-color:rgb(28 25 23/var(--tw-bg-opacity,1))}.bg-stone-100\/10{background-color:hsla(60,5%,96%,.1)}.bg-stone-900{--tw-bg-opacity:1;background-color:rgb(28 25 23/var(--tw-bg-opacity,1))}.bg-gradient-to-r{background-image:linear-gradient(to right,var(--tw-gradient-stops))}.from-black\/70{--tw-gradient-from:rgba(0,0,0,.7) var(--tw-gradient-from-position);--tw-gradient-to:transparent var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.via-black\/40{--tw-gradient-to:transparent var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),rgba(0,0,0,.4) var(--tw-gradient-via-position),var(--tw-gradient-to)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.object-cover{-o-object-fit:cover;object-fit:cover}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pb-20{padding-bottom:5rem}.pt-1{padding-top:.25rem}.pt-2{padding-top:.5rem}.pt-40{padding-top:10rem}.text-center{text-align:center}.font-display{font-family:Playfair Display,Playfair Display Fallback,serif}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-7xl{font-size:4.5rem;line-height:1}.text-\[11px\]{font-size:11px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-\[0\.9\]{line-height:.9}.leading-\[1\.1\]{line-height:1.1}.leading-none{line-height:1}.tracking-\[0\.2em\]{letter-spacing:.2em}.tracking-tight{letter-spacing:-.025em}.tracking-tighter{letter-spacing:-.05em}.tracking-widest{letter-spacing:.1em}.text-\[\#E7E5E4\]{--tw-text-opacity:1;color:rgb(231 229 228/var(--tw-text-opacity,1))}.text-stone-400{--tw-text-opacity:1;color:rgb(168 162 158/var(--tw-text-opacity,1))}.text-stone-800{--tw-text-opacity:1;color:rgb(41 37 36/var(--tw-text-opacity,1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-80{opacity:.8}.mix-blend-difference{mix-blend-mode:difference}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgba(0,0,0,.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.brightness-\[0\.5\]{--tw-brightness:brightness(0.5);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.delay-500{transition-delay:.5s}.duration-300{transition-duration:.3s}@font-face{font-family:Playfair Display Fallback;src:local("Georgia");size-adjust:104.75%;ascent-override:103.29%;descent-override:23.96%;line-gap-override:0.00%}@font-face{font-family:Oswald Fallback;src:local("Arial"),local("Liberation Sans");size-adjust:85.84%;ascent-override:138.98%;descent-override:33.68%;line-gap-override:0.00%}.selection\:bg-stone-900 ::-moz-selection{--tw-bg-opacity:1;background-color:rgb(28 25 23/var(--tw-bg-opacity,1))}.selection\:bg-stone-900 ::selection{--tw-bg-opacity:1;background-color:rgb(28 25 23/var(--tw-bg-opacity,1))}.selection\:text-white ::-moz-selection{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.selection\:text-white ::selection{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.selection\:bg-stone-900::-moz-selection{--tw-bg-opacity:1;background-color:rgb(28 25 23/var(--tw-bg-opacity,1))}.selection\:bg-stone-900::selection{--tw-bg-opacity:1;background-color:rgb(28 25 23/var(--tw-bg-opacity,1))}.selection\:text-white::-moz-selection{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.selection\:text-white::selection{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.hover\:gap-5:hover{gap:1.25rem}.hover\:border-stone-500:hover{--tw-border-opacity:1;border-color:rgb(120 113 108/var(--tw-border-opacity,1))}.hover\:bg-white:hover{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.hover\:text-stone-300:hover{--tw-text-opacity:1;color:rgb(214 211 209/var(--tw-text-opacity,1))}.hover\:text-stone-900:hover{--tw-text-opacity:1;color:rgb(28 25 23/var(--tw-text-opacity,1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.group:hover .group-hover\:border-white{--tw-border-opacity:1;border-color:rgb(255 255 255/var(--tw-border-opacity,1))}@media (min-width:768px){.md\:flex{display:flex}.md\:hidden{display:none}.md\:px-12{padding-left:3rem;padding-right:3rem}.md\:text-6xl{font-size:3.75rem;line-height:1}.md\:text-8xl{font-size:6rem;line-height:1}}@media (min-width:1024px){.lg\:text-7xl{font-size:4.5rem;line-height:1}.lg\:text-9xl{font-size:8rem;line-height:1}}</style>
+    <!--app-css-full:start--><link rel="preload" href="../assets/css/pages/light-oswald-minimal.css" as="style" onload="this.onload=null;this.rel='stylesheet'" /><noscript><link rel="stylesheet" href="../assets/css/pages/light-oswald-minimal.css" /></noscript><!--app-css-full:end-->
+    <style>
+      /* The h1 is the LCP. Its short text lays out before any separate Oswald request
+         could return, so a networked webfont makes Lantern gate LCP on a font round-trip
+         (LCP = FCP + 1 RTT). This inlines a tiny (2.6KB) Oswald 500 subset containing only
+         the hero glyphs as a data URI, so Oswald is available at parse with no extra
+         request: the h1 paints in the real font on the first paint (LCP == FCP), and the
+         metrics-matched "Oswald Fallback" covers the instant before parse with 0 CLS.
+         The full Oswald face still loads via the async stylesheet for the rest of the page. */
+      @font-face {
+        font-family: "Oswald Hero";
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url("data:font/woff2;base64,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") format("woff2");
+      }
+      #about h1 {
+        font-family: "Oswald Hero", "Oswald", "Oswald Fallback", sans-serif;
+      }
       body {
-        font-family: var(--font-sans);
         background-color: #f5f4f0;
         color: #1c1917;
       }
-
+      /* This page uses Oswald (not Playfair) for the .font-display headings. */
       .font-display {
-        font-family: var(--font-display);
+        font-family: "Oswald", "Oswald Fallback", sans-serif;
+      }
+      /* Defer offscreen rendering, excluding the sticky-scroll block whose position
+         would otherwise recompute and cause layout shifts. */
+      #features,
+      #services,
+      #contact,
+      body > footer {
+        content-visibility: auto;
+        contain-intrinsic-size: auto 900px;
       }
 
       /* Smooth Scroll & Fade */
@@ -76,7 +113,7 @@
     <!-- 2. Intro/About Section (Maintenant en premier dans le code) -->
     <section id="about" class="relative min-h-[90vh] w-full bg-[#1C1917] flex items-center justify-center px-6 pt-40 pb-20 overflow-hidden">
       <div class="max-w-6xl mx-auto">
-        <h1 class="animated-text font-display text-4xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight text-[#E7E5E4] font-medium text-center"> Armoires de cuisine, livrée directement à votre porte de qualité professionnelle. </h1>
+        <h1 class="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight text-[#E7E5E4] font-medium text-center"> Armoires de cuisine, livrée directement à votre porte de qualité professionnelle. </h1>
         <div class="mt-16 flex justify-center reveal delay-500">
           <a href="#contact" class="border border-stone-700 text-stone-400 px-8 py-4 rounded-full text-xs tracking-widest uppercase hover:border-stone-500 hover:text-white transition-all duration-300"> Consulter la gamme </a>
         </div>
@@ -108,8 +145,8 @@
           </a>
         </div>
         <!-- Mobile Menu -->
-        <button class="md:hidden absolute right-0 top-0 text-white pt-1">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
+        <button type="button" aria-label="Ouvrir le menu" class="md:hidden absolute right-0 top-0 text-white pt-1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu" aria-hidden="true">
             <line x1="4" x2="20" y1="12" y2="12"></line>
             <line x1="4" x2="20" y1="6" y2="6"></line>
             <line x1="4" x2="20" y1="18" y2="18"></line>
@@ -121,7 +158,15 @@
     <div id="featured-projects" class="w-full bg-stone-900 relative">
       <section class="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden border-b border-stone-800/20 shadow-2xl">
         <div class="absolute inset-0 w-full h-full">
-          <img src="../Assets/three-kitchens.avif" class="w-full h-full object-cover brightness-[0.5]" alt="Intérieur Click Cuisine" />
+          <img
+            src="../assets/img/three-kitchens-960.avif"
+            srcset="../assets/img/three-kitchens-640.avif 640w, ../assets/img/three-kitchens-960.avif 960w, ../assets/img/three-kitchens-1200.avif 1200w"
+            sizes="100vw"
+            class="w-full h-full object-cover brightness-[0.5]"
+            alt="Intérieur de cuisine Click Cuisine"
+            width="1200" height="900"
+            loading="lazy" decoding="async"
+          />
           <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
         </div>
         <div class="relative z-10 w-full max-w-[1800px] mx-auto px-6 md:px-12">
@@ -141,12 +186,13 @@
         </div>
       </section>
     </div>
+    <!--fold-->
     <!-- 4. Services Grid -->
     <section id="services" class="relative z-10 bg-[#F5F4F0] pt-32 pb-32 px-6">
       <div class="max-w-7xl mx-auto">
         <div class="flex flex-col md:flex-row justify-between items-end mb-20 border-b border-stone-300 pb-8 reveal">
           <h3 class="font-display text-4xl md:text-5xl text-stone-900 uppercase tracking-tighter">Notre Technologie</h3>
-          <p class="text-stone-500 text-sm mt-4 md:mt-0 max-w-sm text-justify md:text-right"> Une ingénierie inspirée par l'innovation scandinave, garantissant un assemblage intuitif, rapide et structurellement supérieur. </p>
+          <p class="text-stone-600 text-sm mt-4 md:mt-0 max-w-sm text-justify md:text-right"> Une ingénierie inspirée par l'innovation scandinave, garantissant un assemblage intuitif, rapide et structurellement supérieur. </p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-stone-300 border border-stone-300">
           <!-- Service 1 -->
@@ -190,7 +236,7 @@
       </div>
     </section>
     <!-- 5. Features & Performance -->
-    <section class="relative z-10 bg-white py-32 px-6 border-b border-stone-200">
+    <section id="features" class="relative z-10 bg-white py-32 px-6 border-b border-stone-200">
       <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
         <!-- Left Column: Feature List -->
         <div class="lg:col-span-4 reveal">
@@ -239,14 +285,14 @@
         <!-- Left Side -->
         <div class="lg:col-span-8 flex flex-col gap-8 reveal">
           <h3 class="font-display text-5xl md:text-7xl lg:text-8xl uppercase tracking-tighter leading-[0.9] text-stone-900"> Démarrer votre <br />projet </h3>
-          <h4 class="text-xl md:text-2xl text-stone-500 font-light max-w-xl leading-relaxed"> Pour toute demande d'information, soumission ou opportunité de partenariat, notre équipe est à votre disposition. </h4>
+          <h4 class="text-xl md:text-2xl text-stone-600 font-light max-w-xl leading-relaxed"> Pour toute demande d'information, soumission ou opportunité de partenariat, notre équipe est à votre disposition. </h4>
         </div>
         <!-- Right Side -->
         <div class="lg:col-span-4 flex flex-col items-start lg:items-end justify-center reveal delay-100">
           <a href="mailto:info@clickcuisine.com" class="inline-block bg-stone-900 text-white px-10 py-5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-stone-700 transition-all duration-300 hover:scale-105 hover:shadow-xl"> Nous écrire <span class="ml-2 opacity-50">○</span>
           </a>
           <div class="mt-12 text-left lg:text-right space-y-2">
-            <p class="text-xs font-bold text-stone-400 uppercase tracking-widest">Courriel</p>
+            <p class="text-xs font-bold text-stone-600 uppercase tracking-widest">Courriel</p>
             <p class="text-xl font-display font-medium text-stone-900 border-b border-stone-300 pb-1"> info@clickcuisine.com </p>
           </div>
         </div>
@@ -259,7 +305,7 @@
           <a href="#" class="block font-display text-2xl font-bold tracking-tighter uppercase mb-6">CLICK CUISINE INC.</a>
         </div>
         <div class="space-y-4">
-          <h5 class="text-[10px] font-bold uppercase tracking-widest text-stone-400">Navigation</h5>
+          <h5 class="text-[10px] font-bold uppercase tracking-widest text-stone-600">Navigation</h5>
           <div class="flex flex-col gap-2 text-sm text-stone-600 font-medium uppercase tracking-wide">
             <a href="#" class="hover:text-stone-900 transition-colors">Accueil</a>
             <a href="#featured-projects" class="hover:text-stone-900 transition-colors">Technologie</a>
@@ -268,22 +314,20 @@
           </div>
         </div>
         <div class="space-y-4">
-          <h5 class="text-[10px] font-bold uppercase tracking-widest text-stone-400">Légal</h5>
+          <h5 class="text-[10px] font-bold uppercase tracking-widest text-stone-600">Légal</h5>
           <div class="flex flex-col gap-2 text-sm text-stone-600">
             <a href="#" class="hover:text-stone-900 transition-colors">Confidentialité (Loi 25)</a>
             <a href="#" class="hover:text-stone-900 transition-colors">Conditions de Vente</a>
-            <span class="text-stone-400">NEQ: 1175689745</span>
+            <span class="text-stone-600">NEQ: 1175689745</span>
           </div>
         </div>
       </div>
-      <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-[10px] text-stone-400 uppercase tracking-widest border-t border-stone-200 pt-8 gap-4">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-[10px] text-stone-600 uppercase tracking-widest border-t border-stone-200 pt-8 gap-4">
         <span>© 2026 Click Cuisine Inc. Tous droits réservés.</span>
         <span>Technologie d'assemblage brevetée</span>
       </div>
     </footer>
     <script>
-      // Initialize Icons
-      lucide.createIcons();
       // Intersection Observer
       document.addEventListener("DOMContentLoaded", () => {
         /* --- Basic Reveal --- */

@@ -14,11 +14,18 @@
   descent-override: 23.96%;
   line-gap-override: 0.00%;
 }
+/* Oswald is heavily condensed, so a size-adjust derived from OS/2 xAvgCharWidth
+   (97.19%) is far too wide and makes the fallback wrap to an extra line (CLS + a
+   font-gated LCP). size-adjust is instead measured empirically: at equal font-size the
+   Oswald advance width is 85.84% of Liberation Sans/Arial (tools/measure-width.js).
+   'Liberation Sans' (Arial-metric-compatible) is listed because Lighthouse's Linux
+   Chrome has no 'Arial' for local() and would otherwise drop this face and fall back to
+   a wide default sans-serif. Vertical overrides use Oswald's own metrics / size-adjust. */
 @font-face {
   font-family: 'Oswald Fallback';
-  src: local('Arial');
-  size-adjust: 97.19%;
-  ascent-override: 122.75%;
-  descent-override: 29.74%;
+  src: local('Arial'), local('Liberation Sans');
+  size-adjust: 85.84%;
+  ascent-override: 138.98%;
+  descent-override: 33.68%;
   line-gap-override: 0.00%;
 }
