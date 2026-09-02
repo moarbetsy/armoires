@@ -6,46 +6,25 @@
     <title>Click Cuisine | L'Innovation Québécoise en Ébénisterie</title>
     <meta name="description" content="Une technologie d'assemblage révolutionnaire. Montage en 60 secondes, sans outils. 100% Québécois." />
     
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Tailwind Config for Custom Colors/Fonts -->
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-              display: ['Playfair Display', 'serif'],
-            },
-            colors: {
-              gold: {
-                50: '#FBF8F1',
-                100: '#F5F0DF',
-                200: '#EADFC0',
-                300: '#DFCFA1',
-                400: '#D4BF82',
-                500: '#C9AF63', // Main Gold
-                600: '#A18C4F',
-                700: '#79693B',
-                800: '#504628',
-                900: '#282314',
-              }
-            }
-          }
-        }
-      }
-    </script>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23050505'/%3E%3Ctext x='16' y='23' font-size='20' text-anchor='middle' fill='%23fff' font-family='Georgia,serif'%3EC%3C/text%3E%3C/svg%3E" />
+    <link rel="preload" href="../assets/fonts/playfair-display-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- Compiled Tailwind + critical @font-face inlined at build time (tools/build.js) -->
+    <style data-app-css>@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/inter-latin-400-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:Inter,sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0}.bottom-0{bottom:0}.bottom-1\/4{bottom:25%}.bottom-10{bottom:2.5rem}.left-0{left:0}.left-1\/2{left:50%}.left-1\/4{left:25%}.right-1\/4{right:25%}.right-8{right:2rem}.top-0{top:0}.top-1\/4{top:25%}.top-8{top:2rem}.z-10{z-index:10}.z-40{z-index:40}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-10{margin-bottom:2.5rem}.mb-12{margin-bottom:3rem}.mb-2{margin-bottom:.5rem}.mb-8{margin-bottom:2rem}.mt-20{margin-top:5rem}.mt-24{margin-top:6rem}.mt-8{margin-top:2rem}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-1\.5{height:.375rem}.h-\[500px\]{height:500px}.h-full{height:100%}.h-px{height:1px}.min-h-screen{min-height:100vh}.w-0{width:0}.w-1\.5{width:.375rem}.w-\[500px\]{width:500px}.w-full{width:100%}.max-w-2xl{max-width:42rem}.max-w-5xl{max-width:64rem}.max-w-7xl{max-width:80rem}.max-w-\[1800px\]{max-width:1800px}.-translate-x-1\/2{--tw-translate-x:-50%}.-translate-x-1\/2,.scale-105{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes bounce{0%,to{transform:translateY(-25%);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:none;animation-timing-function:cubic-bezier(0,0,.2,1)}}.animate-bounce{animation:bounce 1s infinite}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-10{gap:2.5rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.overflow-hidden{overflow:hidden}.rounded-full{border-radius:9999px}.border-t{border-top-width:1px}.border-white\/10{border-color:hsla(0,0%,100%,.1)}.bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0/var(--tw-bg-opacity,1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.bg-white\/5{background-color:hsla(0,0%,100%,.05)}.bg-gradient-to-b{background-image:linear-gradient(to bottom,var(--tw-gradient-stops))}.from-black\/90{--tw-gradient-from:rgba(0,0,0,.9) var(--tw-gradient-from-position);--tw-gradient-to:transparent var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.via-black\/40{--tw-gradient-to:transparent var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),rgba(0,0,0,.4) var(--tw-gradient-via-position),var(--tw-gradient-to)}.to-\[\#050505\]{--tw-gradient-to:#050505 var(--tw-gradient-to-position)}.object-cover{-o-object-fit:cover;object-fit:cover}.p-2{padding:.5rem}.p-4{padding:1rem}.px-10{padding-left:2.5rem;padding-right:2.5rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pt-12{padding-top:3rem}.text-center{text-align:center}.font-display{font-family:Playfair Display,Playfair Display Fallback,serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-\[10px\]{font-size:10px}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xs{font-size:.75rem;line-height:1rem}.font-bold{font-weight:700}.font-light{font-weight:300}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-\[1\]{line-height:1}.leading-relaxed{line-height:1.625}.tracking-\[0\.2em\]{letter-spacing:.2em}.tracking-tight{letter-spacing:-.025em}.tracking-wide{letter-spacing:.025em}.tracking-widest{letter-spacing:.1em}.text-black{--tw-text-opacity:1;color:rgb(0 0 0/var(--tw-text-opacity,1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219/var(--tw-text-opacity,1))}.text-gray-300\/80{color:rgba(209,213,219,.8)}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175/var(--tw-text-opacity,1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-20{opacity:.2}.opacity-50{opacity:.5}.opacity-60{opacity:.6}.blur-\[120px\]{--tw-blur:blur(120px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.duration-300{transition-duration:.3s}@font-face{font-family:Playfair Display Fallback;src:local("Georgia");size-adjust:104.75%;ascent-override:103.29%;descent-override:23.96%;line-gap-override:0.00%}@font-face{font-family:Oswald Fallback;src:local("Arial");size-adjust:97.19%;ascent-override:122.75%;descent-override:29.74%;line-gap-override:0.00%}.selection\:bg-white\/20 ::-moz-selection{background-color:hsla(0,0%,100%,.2)}.selection\:bg-white\/20 ::selection{background-color:hsla(0,0%,100%,.2)}.selection\:text-white ::-moz-selection{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.selection\:text-white ::selection{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.selection\:bg-white\/20::-moz-selection{background-color:hsla(0,0%,100%,.2)}.selection\:bg-white\/20::selection{background-color:hsla(0,0%,100%,.2)}.selection\:text-white::-moz-selection{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.selection\:text-white::selection{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05}.hover\:scale-105:hover,.hover\:scale-110:hover{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:scale-110:hover{--tw-scale-x:1.1;--tw-scale-y:1.1}.hover\:bg-gray-200:hover{--tw-bg-opacity:1;background-color:rgb(229 231 235/var(--tw-bg-opacity,1))}.hover\:bg-white:hover{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.hover\:bg-white\/10:hover{background-color:hsla(0,0%,100%,.1)}.hover\:text-black:hover{--tw-text-opacity:1;color:rgb(0 0 0/var(--tw-text-opacity,1))}.hover\:text-gray-300:hover{--tw-text-opacity:1;color:rgb(209 213 219/var(--tw-text-opacity,1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.hover\:shadow-\[0_0_40px_-10px_rgba\(255\2c 255\2c 255\2c 0\.3\)\]:hover{--tw-shadow:0 0 40px -10px hsla(0,0%,100%,.3);--tw-shadow-colored:0 0 40px -10px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.group:hover .group-hover\:w-full{width:100%}.group:hover .group-hover\:translate-x-1{--tw-translate-x:0.25rem;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219/var(--tw-text-opacity,1))}@media (min-width:640px){.sm\:flex-row{flex-direction:row}}@media (min-width:768px){.md\:flex{display:flex}.md\:hidden{display:none}.md\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.md\:gap-16{gap:4rem}.md\:px-12{padding-left:3rem;padding-right:3rem}.md\:text-2xl{font-size:1.5rem;line-height:2rem}.md\:text-3xl{font-size:1.875rem;line-height:2.25rem}.md\:text-5xl{font-size:3rem;line-height:1}.md\:text-7xl{font-size:4.5rem;line-height:1}.md\:text-sm{font-size:.875rem;line-height:1.25rem}}@media (min-width:1024px){.lg\:text-9xl{font-size:8rem;line-height:1}}</style>
+    <!--app-css-full:start--><link rel="preload" href="../assets/css/pages/dark-playfair-enhanced.css" as="style" onload="this.onload=null;this.rel='stylesheet'" /><noscript><link rel="stylesheet" href="../assets/css/pages/dark-playfair-enhanced.css" /></noscript><!--app-css-full:end-->
 
     <style>
-      :root {
-        --font-display: "Playfair Display", serif;
-        --font-sans: "Inter", sans-serif;
+      body > section,
+      body > footer {
+        content-visibility: auto;
+        contain-intrinsic-size: auto 900px;
       }
 
       /* Custom Scrollbar */
@@ -70,7 +49,6 @@
       }
 
       body {
-        font-family: var(--font-sans);
         background-color: #050505;
         color: #f5f5f5;
         overflow-x: hidden;
@@ -226,8 +204,8 @@
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu fixed inset-0 bg-black z-40 md:hidden flex flex-col items-center justify-center gap-10" id="mobileMenu">
       <div class="absolute inset-0 bg-grid opacity-20 pointer-events-none"></div>
-      <button class="absolute top-8 right-8 text-white p-4" id="closeMenuBtn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <button class="absolute top-8 right-8 text-white p-4" id="closeMenuBtn" aria-label="Fermer le menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M18 6 6 18"></path>
           <path d="m6 6 12 12"></path>
         </svg>
@@ -241,10 +219,13 @@
     <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
       <!-- Hero Background Image -->
       <div class="absolute inset-0">
-        <img src="../Assets/background-main-kitchen.avif"
+        <img src="../assets/img/bg-kitchen-1280.avif"
+             srcset="../assets/img/bg-kitchen-640.avif 640w, ../assets/img/bg-kitchen-960.avif 960w, ../assets/img/bg-kitchen-1280.avif 1280w, ../assets/img/bg-kitchen-1920.avif 1920w"
+             sizes="100vw"
              class="w-full h-full object-cover opacity-60 scale-105 animate-subtle-zoom"
-             alt="Cuisine Click Cuisine"
-             loading="eager" />
+             alt="Cuisine moderne Click Cuisine"
+             width="1280" height="1920"
+             loading="eager" fetchpriority="low" decoding="async" />
         <div class="absolute inset-0 bg-gradient-to-b from-black/90 via-black/40 to-[#050505]"></div>
       </div>
 
@@ -255,23 +236,23 @@
       </div>
 
       <div class="relative z-10 max-w-7xl mx-auto px-6 text-center mt-20">
-        <div class="mb-10 fade-in flex justify-center">
+        <div class="mb-10 flex justify-center">
           <span class="inline-flex items-center gap-2 px-4 py-1.5 glass rounded-full text-xs md:text-sm tracking-[0.2em] text-gray-300 uppercase">
             <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
             Innovation Québécoise
           </span>
         </div>
         
-        <h1 class="font-display text-5xl md:text-7xl lg:text-9xl font-bold mb-8 leading-[1] fade-in tracking-tight">
+        <h1 class="font-display text-5xl md:text-7xl lg:text-9xl font-bold mb-8 leading-[1] tracking-tight">
           <span class="gradient-text">L'Ébénisterie</span><br />
           <span class="text-white">Réinventée</span>
         </h1>
         
-        <p class="text-lg md:text-2xl text-gray-300/80 max-w-2xl mx-auto mb-12 leading-relaxed fade-in font-light" style="animation-delay: 0.2s;">
+        <p class="text-lg md:text-2xl text-gray-300/80 max-w-2xl mx-auto mb-12 leading-relaxed font-light">
           Ce n'est pas une nouvelle technologie. Seulement cuisine pré-fab facile à installer et fait sur mesure.
         </p>
 
-        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center fade-in" style="animation-delay: 0.4s;">
+        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
           <a href="#contact" class="group px-10 py-4 bg-white text-black rounded-full font-semibold text-sm tracking-wide hover:bg-gray-200 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)] flex items-center gap-3">
             Démarrer un projet
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform">
@@ -288,19 +269,19 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 mt-24 max-w-5xl mx-auto border-t border-white/10 pt-12">
           <div class="stat-item text-center group" style="animation-delay: 0.6s;">
             <div class="text-4xl md:text-5xl font-bold text-white font-display mb-2 group-hover:text-gray-300 transition-colors">10x</div>
-            <div class="text-xs uppercase tracking-widest text-gray-500">Plus rapide</div>
+            <div class="text-xs uppercase tracking-widest text-gray-400">Plus rapide</div>
           </div>
           <div class="stat-item text-center group" style="animation-delay: 0.7s;">
             <div class="text-4xl md:text-5xl font-bold text-white font-display mb-2 group-hover:text-gray-300 transition-colors">&lt;60s</div>
-            <div class="text-xs uppercase tracking-widest text-gray-500">Par Caisson</div>
+            <div class="text-xs uppercase tracking-widest text-gray-400">Par Caisson</div>
           </div>
           <div class="stat-item text-center group" style="animation-delay: 0.8s;">
             <div class="text-4xl md:text-5xl font-bold text-white font-display mb-2 group-hover:text-gray-300 transition-colors">0</div>
-            <div class="text-xs uppercase tracking-widest text-gray-500">Outils requis</div>
+            <div class="text-xs uppercase tracking-widest text-gray-400">Outils requis</div>
           </div>
           <div class="stat-item text-center group" style="animation-delay: 0.9s;">
             <div class="text-4xl md:text-5xl font-bold text-white font-display mb-2 group-hover:text-gray-300 transition-colors">100%</div>
-            <div class="text-xs uppercase tracking-widest text-gray-500">Québécois</div>
+            <div class="text-xs uppercase tracking-widest text-gray-400">Québécois</div>
           </div>
         </div>
       </div>
@@ -313,6 +294,7 @@
         </svg>
       </div>
     </section>
+    <!--fold-->
 
     <!-- Technology Section -->
     <section id="technology" class="relative py-32 px-6 overflow-hidden bg-[#050505]">
@@ -323,10 +305,13 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div class="fade-in-left zoom-image rounded-sm overflow-hidden relative group">
             <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
-            <img src="../Assets/white-small-kitchen.avif"
+            <img src="../assets/img/white-kitchen-1024.avif"
+                 srcset="../assets/img/white-kitchen-640.avif 640w, ../assets/img/white-kitchen-1024.avif 1024w"
+                 sizes="(min-width: 1024px) 50vw, 100vw"
                  class="w-full h-[600px] object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                 alt="Détail Click Cuisine"
-                 loading="lazy" />
+                 alt="Détail des joints Click Cuisine"
+                 width="1024" height="617"
+                 loading="lazy" decoding="async" />
             <!-- Detail Marker -->
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 border border-white/30 rounded-full flex items-center justify-center backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20">
                <span class="text-xs tracking-widest">JOINTS</span>
@@ -334,7 +319,7 @@
           </div>
 
           <div class="fade-in lg:pl-10">
-            <span class="text-xs tracking-[0.2em] text-gray-500 uppercase mb-6 block border-l-2 border-white pl-4">Notre ADN</span>
+            <span class="text-xs tracking-[0.2em] text-gray-400 uppercase mb-6 block border-l-2 border-white pl-4">Notre ADN</span>
             <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-[1.1]">
               De l'établi à <br /><span class="gradient-text italic pr-2">l'innovation</span>
             </h2>
@@ -351,12 +336,12 @@
             <div class="flex gap-8">
                 <div class="flex flex-col">
                     <span class="text-3xl font-display font-bold text-white">20+</span>
-                    <span class="text-xs text-gray-500 uppercase tracking-wider mt-1">Brevets</span>
+                    <span class="text-xs text-gray-400 uppercase tracking-wider mt-1">Brevets</span>
                 </div>
                 <div class="w-px h-12 bg-white/10"></div>
                 <div class="flex flex-col">
                     <span class="text-3xl font-display font-bold text-white">50k</span>
-                    <span class="text-xs text-gray-500 uppercase tracking-wider mt-1">Cycles testés</span>
+                    <span class="text-xs text-gray-400 uppercase tracking-wider mt-1">Cycles testés</span>
                 </div>
             </div>
           </div>
@@ -368,7 +353,7 @@
     <section id="process" class="relative py-32 px-6 bg-gradient-to-b from-[#050505] to-black">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-24 fade-in">
-          <span class="text-xs tracking-[0.2em] text-gray-500 uppercase mb-4 block">Notre Approche</span>
+          <span class="text-xs tracking-[0.2em] text-gray-400 uppercase mb-4 block">Notre Approche</span>
           <h2 class="font-display text-4xl md:text-6xl font-bold text-white mb-6">Processus simplifié</h2>
           <p class="text-xl text-gray-400 max-w-3xl mx-auto font-light">
             De la conception à l'installation, nous avons supprimé les frictions.
@@ -382,8 +367,8 @@
               <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                  <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
               </div>
-              <div class="text-5xl font-bold text-white/10 font-display mb-8 group-hover:text-white/30 transition-colors">01</div>
-              <h4 class="text-xl font-semibold text-white mb-4">Consultation</h4>
+              <div class="text-5xl font-bold text-white/25 font-display mb-8 group-hover:text-white/30 transition-colors">01</div>
+              <h3 class="text-xl font-semibold text-white mb-4">Consultation</h3>
               <p class="text-sm text-gray-400 leading-relaxed">
                 Analyse ergonomique et esthétique de vos besoins via notre plateforme virtuelle ou en personne.
               </p>
@@ -396,8 +381,8 @@
                <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19 7-7 3 3-7 7-3-3z"></path><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="m2 2 7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
               </div>
-              <div class="text-5xl font-bold text-white/10 font-display mb-8 group-hover:text-white/30 transition-colors">02</div>
-              <h4 class="text-xl font-semibold text-white mb-4">Conception</h4>
+              <div class="text-5xl font-bold text-white/25 font-display mb-8 group-hover:text-white/30 transition-colors">02</div>
+              <h3 class="text-xl font-semibold text-white mb-4">Conception</h3>
               <p class="text-sm text-gray-400 leading-relaxed">
                 Modélisation 3D photoréaliste. Chaque millimètre est optimisé pour votre espace.
               </p>
@@ -410,8 +395,8 @@
                <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path><path d="M10 6h4"></path><path d="M10 10h4"></path><path d="M10 14h4"></path><path d="M10 18h4"></path></svg>
               </div>
-              <div class="text-5xl font-bold text-white/10 font-display mb-8 group-hover:text-white/30 transition-colors">03</div>
-              <h4 class="text-xl font-semibold text-white mb-4">Fabrication</h4>
+              <div class="text-5xl font-bold text-white/25 font-display mb-8 group-hover:text-white/30 transition-colors">03</div>
+              <h3 class="text-xl font-semibold text-white mb-4">Fabrication</h3>
               <p class="text-sm text-gray-400 leading-relaxed">
                 Usinage numérique de précision au dixième de millimètre.
               </p>
@@ -424,8 +409,8 @@
                <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
               </div>
-              <div class="text-5xl font-bold text-white/10 font-display mb-8 group-hover:text-white/30 transition-colors">04</div>
-              <h4 class="text-xl font-semibold text-white mb-4">Installation</h4>
+              <div class="text-5xl font-bold text-white/25 font-display mb-8 group-hover:text-white/30 transition-colors">04</div>
+              <h3 class="text-xl font-semibold text-white mb-4">Installation</h3>
               <p class="text-sm text-gray-400 leading-relaxed">
                 Livraison à plat (Flat-pack). Assemblage Click ultra-rapide par vous ou nos pros.
               </p>
@@ -468,9 +453,9 @@
       <div class="max-w-7xl mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
           <div class="fade-in-left">
-            <h3 class="font-display text-4xl md:text-5xl font-bold mb-6">
+            <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
               Commençons <br />une <span class="gradient-text">conversation</span>
-            </h3>
+            </h2>
             <p class="text-gray-400 text-lg mb-12 leading-relaxed font-light">
               Que ce soit pour une nouvelle cuisine, un projet commercial de grande envergure ou une simple question technique, 
               notre équipe est prête.
@@ -479,21 +464,21 @@
             <form class="space-y-6" onsubmit="event.preventDefault(); alert('Merci! Votre message a été reçu.');">
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="space-y-2">
-                  <label class="text-xs text-gray-500 uppercase tracking-wider ml-1">Prénom</label>
-                  <input type="text" class="w-full px-6 py-4 glass rounded-xl text-white placeholder-gray-600 focus:outline-none focus:ring-1 focus:ring-white/50 focus:bg-white/5 transition-all" />
+                  <label for="f-prenom" class="text-xs text-gray-400 uppercase tracking-wider ml-1">Prénom</label>
+                  <input id="f-prenom" type="text" class="w-full px-6 py-4 glass rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-white/50 focus:bg-white/5 transition-all" />
                 </div>
                 <div class="space-y-2">
-                   <label class="text-xs text-gray-500 uppercase tracking-wider ml-1">Nom</label>
-                  <input type="text" class="w-full px-6 py-4 glass rounded-xl text-white placeholder-gray-600 focus:outline-none focus:ring-1 focus:ring-white/50 focus:bg-white/5 transition-all" />
+                   <label for="f-nom" class="text-xs text-gray-400 uppercase tracking-wider ml-1">Nom</label>
+                  <input id="f-nom" type="text" class="w-full px-6 py-4 glass rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-white/50 focus:bg-white/5 transition-all" />
                 </div>
               </div>
               <div class="space-y-2">
-                 <label class="text-xs text-gray-500 uppercase tracking-wider ml-1">Courriel</label>
-                <input type="email" class="w-full px-6 py-4 glass rounded-xl text-white placeholder-gray-600 focus:outline-none focus:ring-1 focus:ring-white/50 focus:bg-white/5 transition-all" />
+                 <label for="f-courriel" class="text-xs text-gray-400 uppercase tracking-wider ml-1">Courriel</label>
+                <input id="f-courriel" type="email" class="w-full px-6 py-4 glass rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-white/50 focus:bg-white/5 transition-all" />
               </div>
               <div class="space-y-2">
-                 <label class="text-xs text-gray-500 uppercase tracking-wider ml-1">Projet</label>
-                <textarea rows="4" class="w-full px-6 py-4 glass rounded-xl text-white placeholder-gray-600 focus:outline-none focus:ring-1 focus:ring-white/50 focus:bg-white/5 transition-all resize-none"></textarea>
+                 <label for="f-projet" class="text-xs text-gray-400 uppercase tracking-wider ml-1">Projet</label>
+                <textarea id="f-projet" rows="4" class="w-full px-6 py-4 glass rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-white/50 focus:bg-white/5 transition-all resize-none"></textarea>
               </div>
               <button type="submit" class="w-full md:w-auto px-10 py-4 bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition-all duration-300 hover:scale-[1.02]">
                 Obtenir une soumission
@@ -503,18 +488,18 @@
 
           <div class="fade-in space-y-12 lg:pt-8">
             <div>
-              <h4 class="text-xs tracking-[0.2em] text-gray-500 uppercase mb-6 flex items-center gap-2">
+              <h3 class="text-xs tracking-[0.2em] text-gray-400 uppercase mb-6 flex items-center gap-2">
                 <span class="w-8 h-px bg-gray-700"></span> Coordonnées
-              </h4>
+              </h3>
               <div class="space-y-6">
                 <div class="group cursor-pointer">
-                  <p class="text-sm text-gray-500 mb-1 group-hover:text-white transition-colors">Courriel</p>
+                  <p class="text-sm text-gray-400 mb-1 group-hover:text-white transition-colors">Courriel</p>
                   <a href="mailto:info@clickcuisine.com" class="text-2xl font-display text-white hover:text-gray-300 transition-colors border-b border-transparent hover:border-white pb-1">
                     info@clickcuisine.com
                   </a>
                 </div>
                 <div class="group cursor-pointer">
-                  <p class="text-sm text-gray-500 mb-1 group-hover:text-white transition-colors">Téléphone</p>
+                  <p class="text-sm text-gray-400 mb-1 group-hover:text-white transition-colors">Téléphone</p>
                   <a href="tel:+15141234567" class="text-2xl font-display text-white hover:text-gray-300 transition-colors border-b border-transparent hover:border-white pb-1">
                     +1 (514) 123-4567
                   </a>
@@ -524,17 +509,17 @@
 
 
             <div>
-              <h4 class="text-xs tracking-[0.2em] text-gray-500 uppercase mb-6">Réseaux</h4>
+              <h3 class="text-xs tracking-[0.2em] text-gray-400 uppercase mb-6">Réseaux</h3>
               <div class="flex gap-4">
-                <a href="#" class="w-14 h-14 glass rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 group">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <a href="#" aria-label="Instagram" class="w-14 h-14 glass rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 group">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                     <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
                   </svg>
                 </a>
-                <a href="#" class="w-14 h-14 glass rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 group">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <a href="#" aria-label="LinkedIn" class="w-14 h-14 glass rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 group">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                     <rect width="4" height="12" x="2" y="9"></rect>
                     <circle cx="4" cy="4" r="2"></circle>
@@ -555,36 +540,36 @@
             <a href="#" class="font-display text-3xl font-bold tracking-tight text-white hover:text-gray-300 transition-colors block mb-6">
               CLICK CUISINE
             </a>
-            <p class="text-gray-500 leading-relaxed max-w-sm mb-6 text-sm">
+            <p class="text-gray-400 leading-relaxed max-w-sm mb-6 text-sm">
               L'innovation au service de l'ébénisterie résidentielle. 
               Une conception fièrement québécoise qui redéfinit les standards de l'industrie par la simplicité.
             </p>
           </div>
 
           <div>
-            <h5 class="text-xs font-semibold text-white mb-6 tracking-widest uppercase">Navigation</h5>
+            <h3 class="text-xs font-semibold text-white mb-6 tracking-widest uppercase">Navigation</h3>
             <div class="space-y-4">
-              <a href="#technology" class="block text-gray-500 hover:text-white transition-colors text-sm">Technologie</a>
-              <a href="#process" class="block text-gray-500 hover:text-white transition-colors text-sm">Processus</a>
-              <a href="#contact" class="block text-gray-500 hover:text-white transition-colors text-sm">Contact</a>
+              <a href="#technology" class="block text-gray-400 hover:text-white transition-colors text-sm">Technologie</a>
+              <a href="#process" class="block text-gray-400 hover:text-white transition-colors text-sm">Processus</a>
+              <a href="#contact" class="block text-gray-400 hover:text-white transition-colors text-sm">Contact</a>
             </div>
           </div>
 
           <div>
-            <h5 class="text-xs font-semibold text-white mb-6 tracking-widest uppercase">Légal</h5>
+            <h3 class="text-xs font-semibold text-white mb-6 tracking-widest uppercase">Légal</h3>
             <div class="space-y-4">
-              <a href="#" class="block text-gray-500 hover:text-white transition-colors text-sm">Confidentialité</a>
-              <a href="#" class="block text-gray-500 hover:text-white transition-colors text-sm">Conditions d'utilisation</a>
-              <p class="text-gray-700 text-sm pt-4">NEQ: 1175689745</p>
+              <a href="#" class="block text-gray-400 hover:text-white transition-colors text-sm">Confidentialité</a>
+              <a href="#" class="block text-gray-400 hover:text-white transition-colors text-sm">Conditions d'utilisation</a>
+              <p class="text-gray-400 text-sm pt-4">NEQ: 1175689745</p>
             </div>
           </div>
         </div>
 
         <div class="flex flex-col md:flex-row justify-between items-center gap-6 pt-8 border-t border-white/5">
-          <p class="text-xs text-gray-600">
+          <p class="text-xs text-gray-400">
             © 2026 Click Cuisine Inc. Tous droits réservés.
           </p>
-          <p class="text-xs text-gray-600 flex items-center gap-2">
+          <p class="text-xs text-gray-400 flex items-center gap-2">
             <span class="w-1.5 h-1.5 rounded-full bg-white/50"></span>
             Technologie brevetée CA/US
           </p>
