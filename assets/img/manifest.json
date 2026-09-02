@@ -47,17 +47,17 @@
   "cc-hero-640.avif": {
     "w": 640,
     "h": 427,
-    "bytes": 18687
+    "bytes": 8312
   },
   "cc-hero-1280.avif": {
     "w": 1280,
     "h": 853,
-    "bytes": 50733
+    "bytes": 22933
   },
   "cc-hero-1920.avif": {
     "w": 1920,
     "h": 1280,
-    "bytes": 96152
+    "bytes": 49054
   },
   "cc-about-400.avif": {
     "w": 400,

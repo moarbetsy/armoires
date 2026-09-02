@@ -5,9 +5,11 @@
   "private": true,
   "scripts": {
     "build:css": "tailwindcss -i ./assets/css/input.css -o ./assets/css/tailwind.css --minify",
+    "build:images": "node ./tools/build-images.js",
     "build": "node ./tools/build.js"
   },
   "devDependencies": {
+    "sharp": "0.35.4",
     "tailwindcss": "3.4.17"
   }
 }

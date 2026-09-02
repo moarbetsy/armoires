@@ -19,12 +19,20 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦷</text></svg>">
     <meta name="theme-color" content="#2563eb">
     
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <!-- Self-hosted fonts + LCP preloads (no render-blocking third-party requests) -->
+    <link rel="preload" href="assets/fonts/inter-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" as="image" href="assets/img/cc-hero-1280.avif" imagesrcset="assets/img/cc-hero-640.avif 640w, assets/img/cc-hero-1280.avif 1280w, assets/img/cc-hero-1920.avif 1920w" imagesizes="100vw" fetchpriority="high">
     
     <style>
+        /* Self-hosted Inter (latin) with a metrics-matched fallback so the webfont swap
+           does not shift layout. 'Liberation Sans' is Arial-metric-compatible and exists on
+           Linux (Lighthouse), where local('Arial') would otherwise be dropped. */
+        @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/inter-latin-400-normal.woff2') format('woff2'); }
+        @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url('assets/fonts/inter-latin-500-normal.woff2') format('woff2'); }
+        @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url('assets/fonts/inter-latin-600-normal.woff2') format('woff2'); }
+        @font-face { font-family: 'Inter'; font-style: normal; font-weight: 700; font-display: swap; src: url('assets/fonts/inter-latin-700-normal.woff2') format('woff2'); }
+        @font-face { font-family: 'Inter Fallback'; src: local('Arial'), local('Liberation Sans'); size-adjust: 107.06%; ascent-override: 90.20%; descent-override: 22.48%; line-gap-override: 0.00%; }
+
         /* --- 1. Variables & Reset --- */
         :root {
             /* Colors */
@@ -40,7 +48,7 @@
             --white: #ffffff;
             
             /* Typography */
-            --font-main: 'Inter', sans-serif;
+            --font-main: 'Inter', 'Inter Fallback', sans-serif;
             --text-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
             --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
             --text-lg: clamp(1.125rem, 1.05rem + 0.375vw, 1.25rem);
@@ -210,7 +218,7 @@
         .contact-circle { width: 3rem; height: 3rem; border-radius: 50%; background: #dbeafe; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
         .contact-circle svg { width: 1.5rem; height: 1.5rem; color: var(--primary); }
         .contact-label { font-weight: 600; margin-bottom: 0.25rem; }
-        .contact-sub { font-size: 0.75rem; margin-top: 0.25rem; color: #94a3b8; }
+        .contact-sub { font-size: 0.75rem; margin-top: 0.25rem; color: #475569; }
         
         /* Form */
         form { background: var(--white); padding: 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); border: 1px solid var(--border); }
@@ -237,7 +245,7 @@
         .social-box { display: flex; gap: 0.75rem; }
         .social-btn { display: inline-flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; background: var(--text-main); border-radius: 50%; color: #94a3b8; transition: all 0.2s; }
         .social-btn:hover { background: var(--primary); color: var(--white); transform: translateY(-2px); }
-        .footer-copy { padding-top: 2rem; border-top: 1px solid var(--text-main); text-align: center; font-size: 0.875rem; color: var(--text-muted); }
+        .footer-copy { padding-top: 2rem; border-top: 1px solid var(--text-main); text-align: center; font-size: 0.875rem; color: #94a3b8; }
 
         /* Animations & Utilities */
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -328,17 +336,18 @@
     <main id="main">
         <section class="hero" aria-labelledby="hero-h">
             <!-- Responsive Hero Image using srcset for LCP optimization -->
-            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1920" 
-                 srcset="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=640 640w,
-                         https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1280 1280w,
-                         https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1920 1920w"
+            <img src="assets/img/cc-hero-1280.avif" 
+                 srcset="assets/img/cc-hero-640.avif 640w,
+                         assets/img/cc-hero-1280.avif 1280w,
+                         assets/img/cc-hero-1920.avif 1920w"
                  sizes="100vw"
                  alt="Modern dental clinic interior" 
                  class="hero-img"
                  width="1920" 
                  height="1280"
                  fetchpriority="high"
-                 loading="eager">
+                 loading="eager"
+                 decoding="async">
             <div class="hero-overlay" aria-hidden="true"></div>
             
             <div class="hero-content">
@@ -372,16 +381,16 @@
             <div class="container">
                 <div class="grid grid-2 items-center">
                     <div class="about-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=800" 
-                             srcset="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=400 400w,
-                                     https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=800 800w,
-                                     https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=1200 1200w"
+                        <img src="assets/img/cc-about-800.avif" 
+                             srcset="assets/img/cc-about-400.avif 400w,
+                                     assets/img/cc-about-800.avif 800w"
                              sizes="(min-width: 768px) 50vw, 100vw"
                              alt="Dentist consulting with patient" 
                              class="about-img"
                              width="800" 
                              height="800" 
-                             loading="lazy">
+                             loading="lazy"
+                             decoding="async">
                     </div>
                     
                     <div>
@@ -497,11 +506,14 @@
                 <div class="grid grid-4">
                     <article>
                         <div class="team-img">
-                            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&amp;fit=crop&amp;q=80&amp;w=400" 
+                            <img src="assets/img/cc-team1-600.avif" 
+                                 srcset="assets/img/cc-team1-300.avif 300w, assets/img/cc-team1-600.avif 600w"
+                                 sizes="(min-width: 768px) 25vw, 100vw"
                                  alt="Dr. Anna Smith, Orthodontist" 
                                  width="400" 
                                  height="500" 
-                                 loading="lazy">
+                                 loading="lazy"
+                                 decoding="async">
                         </div>
                         <h3 class="font-semibold text-lg">Dr. Anna Smith</h3>
                         <p class="role">Orthodontist</p>
@@ -510,11 +522,14 @@
                     
                     <article>
                         <div class="team-img">
-                            <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&amp;fit=crop&amp;q=80&amp;w=400" 
+                            <img src="assets/img/cc-team2-600.avif" 
+                                 srcset="assets/img/cc-team2-300.avif 300w, assets/img/cc-team2-600.avif 600w"
+                                 sizes="(min-width: 768px) 25vw, 100vw"
                                  alt="Dr. Peter Jones, Surgeon" 
                                  width="400" 
                                  height="500" 
-                                 loading="lazy">
+                                 loading="lazy"
+                                 decoding="async">
                         </div>
                         <h3 class="font-semibold text-lg">Dr. Peter Jones</h3>
                         <p class="role">Surgeon & Implantologist</p>
@@ -523,11 +538,14 @@
                     
                     <article>
                         <div class="team-img">
-                            <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&amp;fit=crop&amp;q=80&amp;w=400" 
+                            <img src="assets/img/cc-team3-600.avif" 
+                                 srcset="assets/img/cc-team3-300.avif 300w, assets/img/cc-team3-600.avif 600w"
+                                 sizes="(min-width: 768px) 25vw, 100vw"
                                  alt="Dr. Maria Davis, Cosmetic Dentistry" 
                                  width="400" 
                                  height="500" 
-                                 loading="lazy">
+                                 loading="lazy"
+                                 decoding="async">
                         </div>
                         <h3 class="font-semibold text-lg">Dr. Maria Davis</h3>
                         <p class="role">Cosmetic Dentistry</p>
@@ -536,11 +554,14 @@
                     
                     <article>
                         <div class="team-img">
-                            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&amp;fit=crop&amp;q=80&amp;w=400" 
+                            <img src="assets/img/cc-team4-600.avif" 
+                                 srcset="assets/img/cc-team4-300.avif 300w, assets/img/cc-team4-600.avif 600w"
+                                 sizes="(min-width: 768px) 25vw, 100vw"
                                  alt="Dr. Thomas Wilson, Endodontics" 
                                  width="400" 
                                  height="500" 
-                                 loading="lazy">
+                                 loading="lazy"
+                                 decoding="async">
                         </div>
                         <h3 class="font-semibold text-lg">Dr. Thomas Wilson</h3>
                         <p class="role">Endodontics</p>
