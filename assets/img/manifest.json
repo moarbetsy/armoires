@@ -1,0 +1,117 @@
+{
+  "bg-kitchen-640.avif": {
+    "w": 640,
+    "h": 960,
+    "bytes": 23597
+  },
+  "bg-kitchen-960.avif": {
+    "w": 960,
+    "h": 1440,
+    "bytes": 44374
+  },
+  "bg-kitchen-1280.avif": {
+    "w": 1280,
+    "h": 1920,
+    "bytes": 68045
+  },
+  "bg-kitchen-1920.avif": {
+    "w": 1920,
+    "h": 2880,
+    "bytes": 125874
+  },
+  "three-kitchens-640.avif": {
+    "w": 640,
+    "h": 480,
+    "bytes": 14892
+  },
+  "three-kitchens-960.avif": {
+    "w": 960,
+    "h": 720,
+    "bytes": 29211
+  },
+  "three-kitchens-1200.avif": {
+    "w": 1200,
+    "h": 900,
+    "bytes": 47830
+  },
+  "white-kitchen-640.avif": {
+    "w": 640,
+    "h": 386,
+    "bytes": 10729
+  },
+  "white-kitchen-1024.avif": {
+    "w": 1024,
+    "h": 617,
+    "bytes": 22787
+  },
+  "cc-hero-640.avif": {
+    "w": 640,
+    "h": 427,
+    "bytes": 18687
+  },
+  "cc-hero-1280.avif": {
+    "w": 1280,
+    "h": 853,
+    "bytes": 50733
+  },
+  "cc-hero-1920.avif": {
+    "w": 1920,
+    "h": 1280,
+    "bytes": 96152
+  },
+  "cc-about-400.avif": {
+    "w": 400,
+    "h": 400,
+    "bytes": 10277
+  },
+  "cc-about-800.avif": {
+    "w": 800,
+    "h": 800,
+    "bytes": 27645
+  },
+  "cc-team1-300.avif": {
+    "w": 300,
+    "h": 375,
+    "bytes": 13022
+  },
+  "cc-team1-600.avif": {
+    "w": 600,
+    "h": 750,
+    "bytes": 32770
+  },
+  "cc-team2-300.avif": {
+    "w": 300,
+    "h": 375,
+    "bytes": 7125
+  },
+  "cc-team2-600.avif": {
+    "w": 600,
+    "h": 750,
+    "bytes": 17902
+  },
+  "cc-team3-300.avif": {
+    "w": 300,
+    "h": 375,
+    "bytes": 6518
+  },
+  "cc-team3-600.avif": {
+    "w": 600,
+    "h": 750,
+    "bytes": 16430
+  },
+  "cc-team4-300.avif": {
+    "w": 300,
+    "h": 375,
+    "bytes": 8376
+  },
+  "cc-team4-600.avif": {
+    "w": 600,
+    "h": 750,
+    "bytes": 22683
+  },
+  "logo_raw.webp": {
+    "w": 108,
+    "h": 80,
+    "bytes": 5104
+  }
+}

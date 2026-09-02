@@ -13,3 +13,12 @@ desktop.ini
 # Temporary files
 *.tmp
 *.log
+
+# Node / build
+node_modules/
+
+# Intermediate build artifacts (main.css is the committed, served output)
+assets/css/tailwind.css
+
+# Image source downloads (only the optimized outputs are committed)
+assets/img/_src/

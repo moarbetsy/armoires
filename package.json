@@ -1,0 +1,13 @@
+{
+  "name": "click-cuisine-site",
+  "version": "1.0.0",
+  "description": "Static marketing site for Click Cuisine with a locally compiled Tailwind CSS build.",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -i ./assets/css/input.css -o ./assets/css/tailwind.css --minify",
+    "build": "node ./tools/build.js"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}

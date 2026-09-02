@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Metrics-matched fallbacks (fontaine algorithm, see tools/font-metrics.py).
+   The display headings are the LCP element on every page; a size-matched fallback
+   makes the first (fallback) paint already the final size, so the webfont swap
+   never re-fires a larger LCP and CLS stays ~0. */
+@font-face {
+  font-family: 'Playfair Display Fallback';
+  src: local('Georgia');
+  size-adjust: 104.75%;
+  ascent-override: 103.29%;
+  descent-override: 23.96%;
+  line-gap-override: 0.00%;
+}
+@font-face {
+  font-family: 'Oswald Fallback';
+  src: local('Arial');
+  size-adjust: 97.19%;
+  ascent-override: 122.75%;
+  descent-override: 29.74%;
+  line-gap-override: 0.00%;
+}
